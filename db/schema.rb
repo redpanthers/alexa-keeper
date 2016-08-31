@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831100030) do
+ActiveRecord::Schema.define(version: 20160831112233) do
+
+  create_table "alexa_ranks", force: :cascade do |t|
+    t.integer  "rank"
+    t.integer  "websites_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["websites_id"], name: "index_alexa_ranks_on_websites_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
