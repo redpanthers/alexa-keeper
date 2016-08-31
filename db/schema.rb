@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20160831124340) do
 
-  create_table "alexa_ranks", force: :cascade do |t|
-    t.integer  "rank"
-    t.integer  "websites_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["websites_id"], name: "index_alexa_ranks_on_websites_id"
-  end
-
   create_table "alexaranks", force: :cascade do |t|
     t.integer  "rank"
     t.integer  "website_id"

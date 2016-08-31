@@ -1,3 +1,6 @@
 <% if !@alexa_rank.empty? %>
-  <%= @alexa_rank.rank %>
+  <%= @alexa_rank.each do |site| %>
+    <br>Rank :
+    <%= site.rank %>
+  <% end %>
 <% end %>
