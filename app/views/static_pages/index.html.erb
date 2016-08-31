@@ -1,2 +1,9 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<% if user_signed_in? %>
+  <h1>Alexa Keeper</h1>
+  <%= form_for (@website) do |f| %>
+    <%= f.label :url, "Domain" %>
+    <%= f.text_field :url, class: "form-control" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "OK" %>
+  <% end %>
+<% end %>
