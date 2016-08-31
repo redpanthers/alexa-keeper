@@ -2,8 +2,8 @@
 
 one:
   rank: 1
-  websites: one
+  website: one
 
 two:
   rank: 1
-  websites: two
+  website: two

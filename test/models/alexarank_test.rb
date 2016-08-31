@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AlexaRankTest < ActiveSupport::TestCase
+class AlexarankTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

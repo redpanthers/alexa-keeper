@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
   def index
-    @website = Website.new if user_signed_in?
+    if user_signed_in?
+      @website = Website.new
+      @urls = current_user.websites.all
+    end
   end
 
   def show

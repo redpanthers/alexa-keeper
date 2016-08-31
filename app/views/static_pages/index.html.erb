@@ -6,4 +6,9 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit "OK" %>
   <% end %>
+  <br>
+  <% @urls.any? %>
+    <% @urls.each do |url| %>
+       <%= link_to url.url, url %><br>
+    <% end %>
 <% end %>

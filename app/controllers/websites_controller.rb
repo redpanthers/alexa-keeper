@@ -7,6 +7,10 @@ class WebsitesController < ApplicationController
     end
   end
 
+  def show
+    @alexa_rank =  Website.find(params[:id]).alexaranks.all
+  end
+
   private
     def website_params
       params.require(:website).permit(:url, :user_id)

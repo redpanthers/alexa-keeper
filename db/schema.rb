@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831112233) do
+ActiveRecord::Schema.define(version: 20160831124340) do
 
   create_table "alexa_ranks", force: :cascade do |t|
     t.integer  "rank"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20160831112233) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["websites_id"], name: "index_alexa_ranks_on_websites_id"
+  end
+
+  create_table "alexaranks", force: :cascade do |t|
+    t.integer  "rank"
+    t.integer  "website_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["website_id"], name: "index_alexaranks_on_website_id"
   end
 
   create_table "users", force: :cascade do |t|
