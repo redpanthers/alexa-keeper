@@ -8,6 +8,15 @@
 
 <script>
 $(function () {
+  var ypoints = [
+    <% @alexa_rank.each do |site| %>
+      <%= site.rank.to_s %>
+    <% end %>
+  ];
+
+
+
+
     $('#container').highcharts({
         title: {
             text: 'Alex Rank',
@@ -18,7 +27,7 @@ $(function () {
             x: -20
         },
         xAxis: {
-            categories: ['it is currently working']
+            categories: ['Date conversion fails']
         },
         yAxis: {
             title: {
@@ -41,7 +50,7 @@ $(function () {
         },
         series: [{
             name: 'Rank',
-            data: [7.0]
+            data: ypoints
         }]
     });
 });
