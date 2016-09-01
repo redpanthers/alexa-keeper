@@ -14,8 +14,9 @@ class StaticPagesController < ApplicationController
   end
 
   def destroy
-    User.destroy(params[:format])
-    Website.destroy_all(user_id: params[:format])
+    id = params[:format]
+    User.destroy(id)
+    Website.where(user_id: id).destroy_all
     redirect_to root_url
   end
 end
