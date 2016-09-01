@@ -1,4 +1,55 @@
 <% if !@alexa_rank.empty? %>
+ 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+
+<script>
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'Alex Rank',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: www.alexa.com',
+            x: -20
+        },
+        xAxis: {
+            categories: ['it is currently working']
+        },
+        yAxis: {
+            title: {
+                text: 'Global Rank'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: 'th Rank'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Rank',
+            data: [7.0]
+        }]
+    });
+});
+</script>
+
+
+
+
   <table>
     <tr>
       <th>Rank</th>
