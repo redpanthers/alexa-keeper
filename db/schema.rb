@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160901111234) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "url"], name: "index_websites_on_user_id_and_url", unique: true
+    t.index ["url", "user_id"], name: "index_websites_on_url_and_user_id"
     t.index ["user_id"], name: "index_websites_on_user_id"
   end
 

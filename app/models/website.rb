@@ -1,6 +1,7 @@
 class Website < ApplicationRecord
-  has_many :users
-  has_many :alexaranks
-  validates :url, presence: true
+  belongs_to :user
+  has_many :alexaranks, dependent: :destroy
+  validates :url, presence: true, uniqueness: true
   validates :user_id, presence: true
+  validates_uniqueness_of :url, :scope => :user_id
 end
