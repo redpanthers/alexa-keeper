@@ -14,7 +14,9 @@ class WebsitesController < ApplicationController
   end
 
   def destroy
-    Website.destroy(params[:id])
+    id = params[:id]
+    Website.destroy(id)
+    Alexarank.destroy_all(id)
     redirect_to root_url
   end
 
