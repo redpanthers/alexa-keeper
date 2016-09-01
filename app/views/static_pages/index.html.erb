@@ -9,6 +9,9 @@
   <br>
   <% @urls.any? %>
     <% @urls.each do |url| %>
-       <%= link_to url.url, url %><br>
+       <%= link_to url.url, url %>
+       <%= button_to "Delete", website_path(url.id),
+                     data: { confirm: "Are you sure?" },
+                     method: :delete %><br>
     <% end %>
 <% end %>

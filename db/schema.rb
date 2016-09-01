@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160831124340) do
     t.integer  "website_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["website_id", "created_at"], name: "index_alexaranks_on_website_id_and_created_at", unique: true
     t.index ["website_id"], name: "index_alexaranks_on_website_id"
   end
 
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160831124340) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "url"], name: "index_websites_on_user_id_and_url"
+    t.index ["user_id", "url"], name: "index_websites_on_user_id_and_url", unique: true
     t.index ["user_id"], name: "index_websites_on_user_id"
   end
 

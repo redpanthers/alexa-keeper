@@ -6,5 +6,6 @@ class CreateAlexaranks < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_index :alexaranks, [:website_id, :created_at], unique: true
   end
 end
