@@ -8,6 +8,7 @@ class WebsitesController < ApplicationController
 
   def show
     @alexa_rank =  Website.find(params[:id]).alexaranks.all
+
     respond_to do |format|
       format.js
     end
