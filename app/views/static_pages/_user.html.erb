@@ -10,10 +10,13 @@
     <div class='col-md-3 col-md-offset-1 content'>
         <% @urls.any? %>
         <% @urls.each do |url| %>
-        <h3><%= link_to url.url, url %></h3>
+        <h3><%= link_to url.url, url , :remote => true %></h3>
         <%= link_to "Delete", website_path(url.id),
                      data: { confirm: "Are you sure?" },
                      method: :delete %><br>
         <% end %>
+    </div>
+    <div id="graph">
+        <%= render partial:'websites/graph' %>
     </div>
 </div>
