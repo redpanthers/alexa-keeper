@@ -2,7 +2,7 @@ class WebsitesController < ApplicationController
 
   def create
     @website = current_user.websites.build(website_params)
-    WebsiteAddJob.perform_later(@website) if @website.save
+    WebsiteAddJob.perform_async(@website) if @website.save
     redirect_to root_url
   end
 

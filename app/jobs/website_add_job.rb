@@ -1,8 +1,9 @@
-#! /usr/bin/env ruby
 require 'nokogiri'
 require 'open-uri'
-class WebsiteAddJob < ApplicationJob
-  queue_as :default
+
+class WebsiteAddJob
+  include SuckerPunch::Job
+  workers 4
 
   def perform(website)
     str = 'http://www.alexa.com/siteinfo/'+website.url.to_s
