@@ -1,1 +1,50 @@
-    $("#graph").html("<% @alexa_rank.each do |site| %><%= site.rank %><% end %>")
+$(document).ready(function() {
+   var title = {
+      text: 'Average Temperatures of Cities'   
+   };
+   var subtitle = {
+      text: 'Source: worldClimate.com'
+   };
+   var xAxis = {
+      categories: ['Jan']
+   };
+   var yAxis = {
+      title: {
+         text: 'Temperature (\xB0C)'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };   
+
+   var tooltip = {
+      valueSuffix: '\xB0C'
+   }
+
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+   };
+var se = <%= @series_data.to_json %>
+   var series =  [
+      {
+         name: 'London',
+         data: [3.9]
+      }
+   ];
+
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.legend = legend;
+   json.series = series;
+
+   $('#graph').highcharts(json);
+});

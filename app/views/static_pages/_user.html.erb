@@ -1,3 +1,5 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 <div class="row">
     <div class="col-md-2">
         <%= form_for (@website) do |f| %>
@@ -16,7 +18,7 @@
                      method: :delete %><br>
         <% end %>
     </div>
-    <div id="graph">
+    <div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto">
         <%= render partial:'websites/graph' %>
     </div>
 </div>
