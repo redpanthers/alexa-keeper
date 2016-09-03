@@ -3,12 +3,14 @@ module WebsitesHelper
   def self.createJSON(alexaRank)
     dates = []
     ranks = []
+    url = []
     alexaRank.each do |site|
+      url << Website.find(site.website_id.to_i).url.to_s
       ranks << site.rank.to_i
-      dates << site.created_at.to_s 
+      dates << site.created_at.to_s
     end
     demo_series = []
-    demo_series << { :name =>'RedPanthers', :data => ranks}
+    demo_series << { :name => url, :data => ranks}
     res = {}
     res['title']={:text=>'Alexa Rank'}
     res['xAxis']={:categories => dates }
