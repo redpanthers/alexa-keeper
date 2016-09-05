@@ -1,11 +1,9 @@
 require 'json'
 module WebsitesHelper
-  def self.createJSON(alexaRank)
+  def self.createJSON(alexaRank, url)
     dates = []
     ranks = []
-    url = []
     alexaRank.each do |site|
-      url << Website.find(site.website_id.to_i).url.to_s
       ranks << site.rank.to_i
       dates << site.created_at.to_s
     end
