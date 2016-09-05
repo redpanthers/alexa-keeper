@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
         @user = User.all
       end
       @website = Website.new
-      @urls = current_user.websites.all
+      @urls = current_user.websites
     end
   end
 

@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Website.all.each do |site|
+  20.times do |n|
+    rank = 200+n
+    site.alexaranks.create!(rank: rank)
+  end
+end
