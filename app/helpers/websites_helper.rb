@@ -5,7 +5,7 @@ module WebsitesHelper
     ranks = []
     alexaRank.each do |site|
       ranks << site.rank.to_i
-      dates << site.created_at.to_s
+      dates << site.created_at.to_s[0..10]
     end
     demo_series = []
     demo_series << { :name => url, :data => ranks}
