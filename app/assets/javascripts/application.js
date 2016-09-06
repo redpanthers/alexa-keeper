@@ -14,19 +14,19 @@
 //= require jquery_ujs
 //= require_tree .
 function getGraph(alexa_rank_json) {
-  alexa_rank_json['yAxis']['labels']['formatter'] = function()
-                                                  {var rate = this.value;
-                                                    if (rate>999999)
-                                                    {
-                                                      rate = Math.round((rate/1000000)*100)/100+" M";
-                                                    }
-                                                    else if(rate>999 && rate<1000000)
-                                                    {
-                                                      rate = Math.round((rate/1000)*100)/100+" k";
-                                                    }
-                                                    return rate;
-                                                  }
-  console.log(alexa_rank_json);
+  alexa_rank_json['yAxis']['labels']['formatter'] = 
+            function()
+            {var rate = this.value;
+              if (rate>999999)
+              {
+                rate = Math.round((rate/1000000)*100)/100+" M";
+              }
+              else if(rate>999 && rate<1000000)
+              {
+                rate = Math.round((rate/1000)*100)/100+" k";
+              }
+              return rate;
+            }
   $(document).ready(function() {
   $('#graph').highcharts(alexa_rank_json);
 });
