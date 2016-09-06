@@ -1,15 +1,13 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
         <%= form_for (@website) do |f| %>
-          <%= f.label :url, "Domain" %>
-          <%= f.text_field :url, class: "form-control" %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.submit "OK", class: 'btn btn-primary' %>
+        <%= f.label :url, "Domain" %>
+        <%= f.text_field :url, class: "form-control" %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.submit "OK", class: 'btn btn-primary' %>
         <% end %>
-    </div>
-    <div class='col-md-3 col-md-offset-1 content'>
         <% @urls.any? %>
         <% @urls.each do |url| %>
         <h3><%= link_to url.url, url , :remote => true %></h3>
@@ -18,6 +16,5 @@
                      method: :delete %><br>
         <% end %>
     </div>
-    <div class='col-md-6' id="graph" style="min-width: 310px; height: 470px; margin: 0 auto">
-    </div>
+    <div class='col-md-8' id="graph"></div>
 </div>

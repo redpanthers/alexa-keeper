@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 function getGraph(alexa_rank_json) {
   alexa_rank_json['yAxis']['labels']['formatter'] = function()
