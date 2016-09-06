@@ -1,23 +1,21 @@
 class StaticPagesController < ApplicationController
   def index
     if user_signed_in?
-      #current_user.update_attribute :admin, true
       if current_user.admin?
         @user = User.all
       end
       @website = Website.new
       @urls = current_user.websites
-      web = Website.where(user_id: current_user.id)
-      @alexa_rank_json = StaticPagesHelper.createJSON(web)
-      respond_to do |format|
-        format.html
-        format.json { render json: @alexa_rank_json}
-      end
     end
   end
 
   def show
-
+    web = Website.where(user_id: current_user.id)
+    @alexa_rank_json = StaticPagesHelper.createJSON(web)
+    respond_to do |format|
+      format.html
+      format.json { render json: @alexa_rank_json}
+    end
   end
 
   def destroy

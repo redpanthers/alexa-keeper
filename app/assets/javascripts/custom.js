@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $.getJSON('/', function(data) {
+    $.getJSON('/static_pages/show', function(data) {
         console.log(data)
         $('#graph').highcharts({
             title: {
