@@ -5,10 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+user = User.find(1)
+urls = ['csnipp.com', 'redpanthers.co', 'google.com']
+
+urls.each do |url|
+  user.websites.create!(url: url)
+end
 
 Website.all.each do |site|
   20.times do |n|
-    rank = 200+n
-    site.alexaranks.create!(rank: rank)
+    rank = 1614533-n
+    date = Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f))
+    site.alexaranks.create!(rank: rank, created_at: date)
   end
 end
