@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $.getJSON('http://localhost:3000/', function(data) {
+    $.getJSON('/', function(data) {
         console.log(data)
         $('#graph').highcharts({
             title: {
