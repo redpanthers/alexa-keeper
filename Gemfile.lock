@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/activeadmin/inherited_resources.git
+  revision: 4434f0ae72f790cf371728838c927c338100555d
+  specs:
+    inherited_resources (1.6.0)
+      actionpack (>= 3.2, < 5.1)
+      has_scope (~> 0.6)
+      railties (>= 3.2, < 5.1)
+      responders
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -67,6 +77,9 @@ GEM
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    has_scope (0.7.0)
+      actionpack (>= 4.1, < 5.1)
+      activesupport (>= 4.1, < 5.1)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -181,6 +194,7 @@ DEPENDENCIES
   byebug (= 9.0.0)
   coffee-rails (= 4.2.1)
   devise
+  inherited_resources!
   jbuilder (= 2.4.1)
   jquery-rails (= 4.1.1)
   listen (= 3.0.8)

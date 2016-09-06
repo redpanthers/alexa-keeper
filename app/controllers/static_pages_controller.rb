@@ -7,10 +7,17 @@ class StaticPagesController < ApplicationController
       end
       @website = Website.new
       @urls = current_user.websites
+      web = Website.where(user_id: current_user.id)
+      @alexa_rank_json = StaticPagesHelper.createJSON(web)
+      respond_to do |format|
+        format.html
+        format.json { render json: @alexa_rank_json}
+      end
     end
   end
 
   def show
+
   end
 
   def destroy
