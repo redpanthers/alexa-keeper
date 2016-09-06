@@ -10,10 +10,11 @@ module WebsitesHelper
     demo_series = []
     demo_series << { :name => url, :data => ranks}
     res = {}
-    res['title']={:text=>'Alexa Rank'}
+    res['title']={:text       =>'Alexa Rank'}
     res['xAxis']={:categories => dates }
-    res['yAxis']={:title => { :text => 'Alexa Rank'},
-                  :plotLines =>[{:value => 0,
+    res['yAxis']={:title      => { :text => 'Alexa Rank'},
+                  :labels     =>{},
+                  :plotLines  =>[{:value => 0,
                                  :width => 1,
                                  :color => '#808080'
                                 }]}
