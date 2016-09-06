@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.find(1)
+user = User.first
 urls = ['csnipp.com', 'redpanthers.co', 'google.com']
 
 urls.each do |url|
