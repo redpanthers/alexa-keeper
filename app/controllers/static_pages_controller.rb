@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
     if user_signed_in?
-      #current_user.update_attribute :admin, true
       if current_user.admin?
         @user = User.all
       end

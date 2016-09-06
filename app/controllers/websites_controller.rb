@@ -11,7 +11,6 @@ class WebsitesController < ApplicationController
     ranks                = website.alexaranks.all
     @alexa_rank_json     = WebsitesHelper.createJSON(ranks, website.url)
     puts @alexa_rank_json
-    #@chart_settings_json = WebsitesHelper.getSettings();
     website          = Website.find(params[:id])
     ranks             = website.alexaranks
     @alexa_rank_json = WebsitesHelper.createJSON(ranks, website.url)
