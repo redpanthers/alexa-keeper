@@ -19,3 +19,4 @@ Website.all.each do |site|
     site.alexaranks.create!(rank: rank, created_at: date)
   end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
