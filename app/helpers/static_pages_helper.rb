@@ -12,7 +12,7 @@ module StaticPagesHelper
         create_data = {:name => rank.created_at.to_s[0..10], :y => rank.rank.to_i}
         data.push(create_data)
       end
-      demo_series = { :name => site.url, :data => data, :date => category }
+      demo_series = { :name => site.url, :data => data, :date => category.uniq }
       series.push(demo_series)
     end
     series = series.map{ |o| Hash[o.each_pair.to_a]}
