@@ -8,17 +8,14 @@ class WebsitesController < ApplicationController
 
   def show
     website          = Website.find(params[:id])
-    ranks            = website.alexaranks
-    @alexa_rank_json = WebsitesHelper.createJSON(ranks, website.url)
+    @alexa_rank_json = WebsitesHelper.createJSON(website)
     respond_to do |format|
       format.js
     end
   end
 
   def destroy
-    id = params[:id]
-    Website.destroy(id)
-    Alexarank.where(website_id: id).destroy_all
+    Website.destroy(params[:id])
     redirect_to root_url
   end
 

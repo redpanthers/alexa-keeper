@@ -1,14 +1,16 @@
 require 'json'
 module WebsitesHelper
-  def self.createJSON(alexaRank, url)
+  def self.createJSON(website)
+    alexaRank = website.fetch_last_10_days_rank
+    url   = website.url
     dates = []
     ranks = []
     alexaRank.each do |site|
       rank_date_pair  = []
-      rank_date_pair << site.created_at.to_s[0..9]
-      rank_date_pair << site.rank.to_i
+      rank_date_pair << site.created_at.strftime('%Y-%m-%d')
+      rank_date_pair << site.rank
       ranks          << rank_date_pair
-      dates          << site.created_at.to_s[0..9]
+      dates          << site.created_at.strftime('%Y-%m-%d')
     end
     series            = []
     series           << { :name => url, :data => ranks}
