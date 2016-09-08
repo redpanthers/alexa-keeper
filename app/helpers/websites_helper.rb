@@ -19,7 +19,8 @@ module WebsitesHelper
     res['xAxis']      ={:categories => dates.uniq,
                         :title      => {text: 'Date(YYYY-mm-dd)'}
                         }
-    res['yAxis']      ={:title      => { :text => 'Alexa Rank'},
+    res['yAxis']      ={:reversed   => 'true',
+                        :title      => { :text => 'Alexa Rank'},
                         :labels     =>{},
                         :plotLines  =>[{:value => 0,
                                  :width => 1,
