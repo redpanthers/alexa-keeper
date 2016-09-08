@@ -14,4 +14,10 @@ class Website < ApplicationRecord
       Rails.logger.info "[AFE] #{e.message}"
     end
   end
+
+  def fetch_last_10_days_rank
+    self.alexaranks.where("created_at >= ?",
+                          Date.current - 10.days)
+                          .timeline
+  end
 end
