@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  if($('#graph').length){
     $.getJSON('/static_pages/show', function(data) {
         console.log(data)
         $('#graph').highcharts({
@@ -47,4 +48,5 @@ $(document).ready(function() {
             series: data
         });
     })
+  }
 });
