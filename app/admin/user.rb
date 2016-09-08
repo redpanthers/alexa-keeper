@@ -14,6 +14,7 @@ ActiveAdmin.register User do
         column :name
         column :email
         column :created_at
+        column :sign_in_count
         actions
     end
     permit_params :name, :email, :password, :password_confirmation

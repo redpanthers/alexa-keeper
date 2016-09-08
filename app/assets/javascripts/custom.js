@@ -14,6 +14,7 @@ $(document).ready(function() {
                 categories: data[0]['date']
             },
             yAxis: {
+                reversed : 'true',
                 title: {
                     text: 'Ranks'
                 },

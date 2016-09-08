@@ -18,6 +18,6 @@ class Website < ApplicationRecord
   def fetch_last_10_days_rank
     self.alexaranks.where("created_at >= ?",
                           Date.current - 10.days)
-                          .timeline
+                          .order('created_at ASC')
   end
 end
