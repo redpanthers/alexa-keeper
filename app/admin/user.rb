@@ -2,9 +2,11 @@ ActiveAdmin.register User do
     # See permitted parameters documentation:
     # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
     #
-    filter :name
+    action_item only: :index do
+      link_to "Disable SignUp", "#"
+    end
+
     filter :email
-    filter :created_at
 
     index do
         selectable_column
