@@ -21,7 +21,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 section {
@@ -99,6 +99,18 @@ input {
 a{
   &:hover{
     text-decoration: none;
-    color: green; 
+    color: green;
   }
+}
+
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer small {
+  float:left;
 }
