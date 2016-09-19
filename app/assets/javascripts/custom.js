@@ -1,7 +1,11 @@
 $(document).ready(function() {
+  if($('#graph').length){
     $.getJSON('/static_pages/show', function(data) {
         console.log(data)
         $('#graph').highcharts({
+	    chart: {
+		    zoomType: 'x'
+	    },
             title: {
                 text: 'Alexa Keeper',
                 x: -20 //center
@@ -47,4 +51,5 @@ $(document).ready(function() {
             series: data
         });
     })
+  }
 });
