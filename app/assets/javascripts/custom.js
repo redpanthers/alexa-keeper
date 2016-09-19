@@ -15,7 +15,8 @@ $(document).ready(function() {
                 x: -20
             },
             xAxis: {
-                categories: data[0]['date']
+                categories: data[0]['date'],
+                min: 0
             },
             yAxis: {
                 reversed : 'true',
