@@ -17,7 +17,8 @@ module WebsitesHelper
     res               = {}
     res['title']      ={:text       =>'Alexa Rank'}
     res['xAxis']      ={:categories => dates.uniq,
-                        :title      => {text: 'Date(YYYY-mm-dd)'}
+                        :title      => {text: 'Date(YYYY-mm-dd)'},
+                        :min        => 0
                         }
     res['yAxis']      ={:reversed   => 'true',
                         :title      => { :text => 'Alexa Rank'},
