@@ -64,9 +64,7 @@
       letter-spacing: 2px
   }
 
-  h1{
-    word-spacing: -1px;
-  }
+
 
   a {
       -webkit-transition: all .35s;
@@ -118,17 +116,18 @@
 
   .navbar-default .navbar-header .navbar-brand:focus,
   .navbar-default .navbar-header .navbar-brand:hover {
-      color: #fcbd20
+      color: #fcbd20;
+      font-size:12px
   }
 
   .navbar-default .navbar-header .navbar-toggle {
-      font-size: 12px;
+      font-size: 15px;
       color: #222;
       padding: 8px 10px
   }
 
   .navbar-default .nav>li>a {
-      font-size: 11px
+      font-size: 17px
   }
 
   .navbar-default .nav>li>a,
@@ -514,7 +513,7 @@
 
   .btn-xl {
       padding: 15px 45px;
-      font-size: 11px
+      font-size: 15px
   }
 
   ::-moz-selection {
