@@ -61,7 +61,11 @@
   h6 {
       font-family: Catamaran, Helvetica, Arial, sans-serif;
       font-weight: 400;
-      letter-spacing: 1px
+      letter-spacing: 2px
+  }
+
+  h1{
+    word-spacing: -1px;
   }
 
   a {

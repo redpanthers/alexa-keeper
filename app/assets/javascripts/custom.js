@@ -24,7 +24,7 @@ $(document).ready(function() {
   //         top: 50
   //     }
   // });
-  var slider = ["ALERT","SMART","COMPETITIVE","IN BUSINESS"];
+  var slider = ["ALERT","SMART","COMPETITIVE"];
   $("#animate").addClass('animated infinite fadeInDown');
   $("#animate").text(slider[0]);
   var i = 1;
