@@ -25,13 +25,10 @@
     <body id="page-top">
       <% if current_page?('/') %>
         <%= render partial: 'layouts/home' %>
-        <% else %>
-       <%= render partial: 'layouts/header' %>
-       <% end %>
+      <% else %>
+        <%= render partial: 'layouts/header' %>
+      <% end %>
       <%= yield %>
-           <%= render partial: 'layouts/footer' %>
-        
+        <%= render partial: 'layouts/footer' %>
     </body>
-
-
 </html>
