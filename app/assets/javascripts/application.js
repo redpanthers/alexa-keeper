@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 function getGraph(alexa_rank_json) {
-  alexa_rank_json['yAxis']['labels']['formatter'] = 
+  alexa_rank_json['yAxis']['labels']['formatter'] =
             function()
             {var rate = this.value;
               if (rate>999999)
