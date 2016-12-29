@@ -1,16 +1,16 @@
 Rails.application.configure do
   #config for sendgrid mail
-  config.active_record.default_url_options = { host:'https://alexa-keeper.herokuapp.com/'}
-  config.action_mailer.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
-    }
+  #config.active_record.default_url_options = { host:'https://alexa-keeper.herokuapp.com/'}
+  #config.action_mailer.delivery_method = :smtp
+  #ActionMailer::Base.smtp_settings = {
+   # :address        => 'smtp.sendgrid.net',
+    #:port           => '587',
+    #:authentication => :plain,
+    #:user_name      => ENV['SENDGRID_USERNAME'],
+    #:password       => ENV['SENDGRID_PASSWORD'],
+    #:domain         => 'heroku.com',
+    #:enable_starttls_auto => true
+    #}
   #-----------
 
   # Settings specified here will take precedence over those in config/application.rb.
