@@ -1,4 +1,6 @@
+
  <% if user_signed_in? %>
+
   <% if current_user.admin? %>
     <div class="row">
       <div class='col-md-6 col-md-offset-3'>
@@ -15,53 +17,50 @@
       </div>
     </div>
   <% else %>
+
     <%= render 'user' %>
   <% end %>
-<% end %> 
-   
-    <header id="home">
-        <div class="container">
-          <div class="header-content">
-              <div class="header-content-inner">
-            <div class="row-fluid" style="margin-top:80px">
-              
-                <!-- <div class="col-sm-2"></div> -->
-              <div class="col-sm-6 text-right" style="padding-right:0">
-
-                          <h1 style="display:inline-block;">STAY</h1>
-                          
-
-              </div>
-              <div class="col-xs-6 text-left" style="padding-right:0">
-                <h1 id="animate" style="font-weight:800;display:inline-block"></h1>
-              </div>
-             <!--  <div class="col-sm-4">
-
-                          
-
-              </div> -->
+  <% else %>
+  <%= render partial: 'layouts/home' %>
+  <header id="home">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-content-inner">
+          <div class="row-fluid" style="margin-top:80px">
               <!-- <div class="col-sm-2"></div> -->
-          
-                <div class="col-sm-12">
-                          <div class="row">
-                            <div class="col-sm-12" style="font-size: 30px;">
-                            <h2 style="color: white;"> Keep Consistent Watch Over Your Competitors Online Presence With Our Bundle Of Smart Tools</h2>
-                          </div>
-                          
-                          <div class="col-sm-12 text-center" style="margin-top:60px">
-                            <a href="#download" class="btn btn-outline btn-xl page-scroll">Create Free Account!!</a>
-                          </div>
-                          </div>
-
-                            <br>
-                            </br>
+            <div class="col-sm-5 text-right" style="padding-right:0">
+              <h1 style="display:inline-block;">STAY</h1>
+            </div>
+            <div class="col-xs-7 text-left" style="padding-right:0">
+              <h1 id="animate" style="font-weight:900;display:inline-block"></h1>
+            </div>
+             <!--  <div class="col-sm-4">
+               </div> -->
+              <!-- <div class="col-sm-2"></div> -->
+            
+            <div class="row">
+              
+              <div class="col-sm-12" style="font-size: 30px; text-align:center;>
+                 <h2 style="color: white;"> Keep Consistent Watch Over Your Competitors Online Presence<br> With Our Bundle Of Smart Tools</h2>
+              </div>
+               
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-center" style="margin-top:60px">
+              
+                         <%= link_to 'Create Free Account', new_user_registration_path ,class:"btn btn-outline btn-xl page-scroll"%>
                 </div>
               </div>
+            </div>
+            <br>
+            </br>
+            </div>
+            </div>
             </div>
             </div>
         </div>
     </header>
-    <section id="download" class="download bg-primary text-center">
+    <section id="how it works" class="download bg-primary text-center">
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="col-md-12 ">
@@ -84,7 +83,7 @@
                         </br>
                         <div class="row">
                             <div class="col-md-12 text-center" style="margin-top:30px;">
-                                <a href="#" class="btn btn-outline btn-xl page-scroll">Create Free Account!</a>
+                               <%= link_to 'Create free account', new_user_registration_path ,class:"btn btn-outline btn-xl page-scroll"%>
                             </div>
                         </div>
                     </div>
@@ -120,7 +119,7 @@
                     <div class="row" style="margin-top:30px;">
                         <div class="col-md-12 text-center">
                             <br>
-                            <a href="#download" class="btn btn-outline btn-xl page-scroll">Create Free Account!</a>
+                            <%= link_to 'Create free account', new_user_registration_path ,class:"btn btn-outline btn-xl page-scroll"%>
                         </div>
                     </div>
                 </div>
@@ -150,7 +149,7 @@
             </div>
         </div>
     </section>
-   <section style="background-color:#008060">
+   <section style="background-color:#33ff77;padding-top:0px;padding-bottom:40px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -164,10 +163,16 @@
                           <div class="col-md-12 text-center">
                             
                             <br>
-                            <a href="#download" class="btn btn-outline btn-xl page-scroll">Create Free Account!</a>
+                            <%= link_to 'Create Free Account', new_user_registration_path ,class:"btn btn-outline btn-xl page-scroll"%>
                            
                            
                           </div>
                         </div>
           </div>
     </section>
+  
+<% end %> 
+
+   
+   
+ <%= render partial: 'layouts/footer' %>

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   delete 'static_pages/destroy'
 
   get 'static_pages/show'
+  get 'device/registrations/new'
 end

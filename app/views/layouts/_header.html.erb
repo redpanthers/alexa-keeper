@@ -1,6 +1,11 @@
- <header class="navbar navbar-default">
+ <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color:black !important;">
             <div class="container">
-                <%= link_to "RankHub", root_path, id: 'logo', class:'load' %>
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <%= link_to 'RankHub',root_path, class:"navbar-brand page-scroll"  %>
+            </div>
                 <% if user_signed_in? %>
                 <nav>
                     <ul class="nav navbar-nav navbar-right">
@@ -18,4 +23,4 @@
                 </nav>
                 <% end %>
             </div>
-        </header>
+        </nav>

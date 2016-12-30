@@ -22,13 +22,11 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
-    <body id="page-top">
-      <% if current_page?('/') %>
-        <%= render partial: 'layouts/home' %>
-      <% else %>
+    <body>
+      <% if user_signed_in? %>
         <%= render partial: 'layouts/header' %>
       <% end %>
       <%= yield %>
-        <%= render partial: 'layouts/footer' %>
+       
     </body>
 </html>
