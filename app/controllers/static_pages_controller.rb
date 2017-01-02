@@ -9,6 +9,9 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def contact
+  end
+
   def show
     web = Website.where(user_id: current_user.id)
     @alexa_rank_json = StaticPagesHelper.createJSON(web)
