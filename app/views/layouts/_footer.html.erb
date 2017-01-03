@@ -3,7 +3,39 @@
             <p>&copy; 2016 All Rights Reserved.</p>
             <ul class="list-inline">
                 <li>
-                   <%= link_to 'Contact', static_pages_contact_path %>
+                   <a data-toggle="modal" href="#cntModal">Contact</a>
+                    <div class="modal fade" id="cntModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 class="modal-title">Contact Us</h1>
+          </div>
+        <div class="modal-body">
+           <form>
+        <div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="text" class="form-control" id="usr">
+</div>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+   <div class="form-group">
+  <label for="comment">Message:</label>
+  <textarea class="form-control" rows="8" id="comment"></textarea>
+</div>
+ 
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+    
+        </div>
+      </div>
+      
+    </div>
+  </div>
                 </li>
                
                 <li>
@@ -44,10 +76,8 @@
 <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
 <p><strong>Contact Us</strong></p>
 <p>If you have any questions about these Terms, please contact us.</p>
-Add Comment
-<input class="form-control" id="inputdefault" type="text">
-<br>
-<button type="button" class="btn btn-success btn-xs btn pull-right">Submit</button>
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
@@ -95,7 +125,9 @@ Add Comment
 <p><strong>Changes To This Privacy Policy</strong></p>
 <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
 <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-<p><strong>Contact Us</strong></p></div>
+<p><strong>Contact Us</strong></p>
+<p>If you have any questions about this Privacy Policy, please contact us.</p>
+</div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
         </div>
