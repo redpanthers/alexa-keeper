@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/show'
   get 'static_pages/contact'
+  get 'static_pages/terms'
+  get 'static_pages/privacy'
   get 'device/registrations/new'
 end

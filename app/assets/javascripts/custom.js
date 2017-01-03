@@ -98,12 +98,14 @@ $(document).ready(function() {
    $(document).scroll(function() { 
       scroll_start = $(this).scrollTop();
       if(scroll_start > offset.top) {
-          $(".navbar-default").css('background-color', 'black');
-           
-
+          $(".navbar-default").css('background-color', 'white');
+          $(".navbar-default,.nav,li,a").css('color', 'black');
+          $(".btn-outline").css('color', 'white'); 
+          $("footer ul li a").css('color', 'rgba(255,255,255,0.3)'); 
          
        } else {
           $('.navbar-default').css('background-color', 'transparent');
+          $(".navbar-default,.nav,li,a").css('color', 'white');
        }
    });
     }
