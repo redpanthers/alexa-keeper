@@ -19,12 +19,13 @@
   body,
   html {
       height: 100%;
-      width: 100%
+      width: 100%;
   }
 
   body {
       font-family: Muli, Helvetica, Arial, sans-serif;
-      webkit-tap-highlight-color: #222
+      webkit-tap-highlight-color: #222;
+
   }
 
   .navbar-default,
@@ -69,18 +70,15 @@
       border-color: #fff
   }
 
-  p {
-      font-size: 70px;
-      line-height: 1.5;
-      margin-bottom: 20px
+ 
+
+  .terms{
+    p{
+      font-size: 12px;
+    }
   }
 
-
-
-  
-
-
-  .navbar-default {
+.navbar-default {
       background-color: #fff;
       border-color: rgba(34, 34, 34, .05);
       -webkit-transition: all .35s;
@@ -95,7 +93,6 @@
   .btn,
   .navbar-default .nav>li>a {
       font-family: Lato, Helvetica, Arial, sans-serif;
-      
       letter-spacing: 2px
   }
 
@@ -112,7 +109,7 @@
   }
 
   .navbar-default .nav>li>a {
-      font-size: 17px
+      font-size: 15px
   }
 
   .navbar-default .nav>li>a,
@@ -136,7 +133,7 @@
       background-color: transparent
   }
 
-  @media (min-width:768px) {
+  @media (min-width:600px) {
       .navbar-default {
           background-color: transparent;
           border-color: transparent
@@ -450,19 +447,19 @@
 
   footer {
       background-color: black;
-      padding: 20px 0;
+      padding: 10px 0;
       margin:0 auto;
     width:100%;
     height:auto;
     overflow:hidden;
-    
+    #position: fixed;
     bottom: 0px;
   }
 
   .foot_in{
-    #position: fixed;
+    position: fixed;
       background-color: black;
-      padding: 20px 0;
+      padding: 10px 0;
       margin:0 auto;
     width:100%;
     height:auto;
@@ -471,6 +468,9 @@
     bottom: 0px;
   }
 
+  .container{
+    position: relative;
+  }
 
   footer p {
       margin: 0
