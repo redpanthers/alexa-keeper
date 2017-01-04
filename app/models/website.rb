@@ -1,5 +1,6 @@
 class Website < ApplicationRecord
   belongs_to :user
+  belongs_to :collections
   has_many :alexaranks, dependent: :destroy
   validates :url, presence: true
   validates :user_id, presence: true

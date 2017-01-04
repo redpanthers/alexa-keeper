@@ -21,6 +21,7 @@ class WebsitesController < ApplicationController
 
   private
     def website_params
-      params.require(:website).permit(:url, :user_id)
+      params.require(:website).permit(:url, :user_id, :collection_id)
     end
+  
 end

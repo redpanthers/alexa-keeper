@@ -1,13 +1,18 @@
 class StaticPagesController < ApplicationController
-  def index
+    def index
     if user_signed_in?
       if current_user.admin?
         @user = User.all
       end
       @website = Website.new
       @urls = current_user.websites
+      @collection = Collection.new
+
+      @collection_names = current_user.collections
+      @collect = Collection.new
     end
   end
+
 
   def contact
   end

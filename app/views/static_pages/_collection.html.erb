@@ -1,0 +1,59 @@
+<div class="container">
+<div class="row" style="padding-top:152px;margin-bottom:350px">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="col-md-6">
+        <% collection_nil = [] %>   
+          <% @urls.each do |url| %>
+            <% if url.collection_id.nil? %>
+              <% collection_nil << url.id %>
+            <% end %>
+          <% end %>
+        <% if collection_nil.empty? %>
+          <%= form_for (@collection) do |f| %>
+            <%= f.label :name, "Create collection" %>
+            <%= f.text_field :name, class: "form-control" %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.submit "OK", class: 'btn btn-primary btn-block' %>
+          <% end %>                       
+          <% @collection_names.any? %><br>       
+          <div class="panel-group" id="accordion">
+            <% @collection_names.each_with_index do |collect, index| %>            
+              <div class="panel">                   
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index+1 %>">
+                  <h4><%= collect.name %></h4><br>
+                </a> 
+                 <%= link_to "Delete", collection_path(collect.id),
+                  data: { confirm: "Are you sure?" },
+                  method: :delete %> 
+                <div id="collapse<%= index+1 %>" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-9">
+                        <%= form_for (@website) do |f| %> 
+                          <%= f.label :url, "Domain" %>
+                          <%= f.text_field :url, class: "form-control" %>
+                          <%= f.hidden_field :collection_id, value: collect.id%>
+                          <%= f.submit "OK", class: 'btn btn-primary btn-block' %> 
+                        <% end %>
+                      </div>
+                      <br><br><br><br>
+                      <div class="col-md-3">                     
+                        <%= render partial: "domain", locals: { collect_id: collect.id } %>  
+                      </div>
+                    </div>                
+                  </div>
+                </div> 
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-6"></div>    
+      </div>  
+      <div class="col-md-6" id="graph"></div>
+    <% else %>
+      <%= render 'check' %>
+    <% end %>
+  </div>
+</div>
+</div>

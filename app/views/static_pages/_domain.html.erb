@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-3">       
+        <% @urls.any? %>
+        <% @urls.each do |url| %>
+          <% if url.collection_id == collect_id %>
+          <h3><%= link_to url.url, url , :remote => true %> </h3>     
+          <%= link_to "Delete", website_path(url.id),
+                       data: { confirm: "Are you sure?" },
+                       method: :delete %><br>
+        <% end %>
+        <% end %>
+    </div>    
+</div>
