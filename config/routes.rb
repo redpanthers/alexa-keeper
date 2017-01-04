@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :websites
   resources :users
+  resources :collections
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'static_pages#index'
   delete 'static_pages/destroy'
@@ -12,5 +13,7 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
   get 'static_pages/terms'
   get 'static_pages/privacy'
+  get 'static_pages/collection'
+
   get 'device/registrations/new'
 end
