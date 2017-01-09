@@ -2,11 +2,11 @@
 
 
 <div class="container">
-  <div class="row" style="padding-top:52px">
+  <div class="row" style="padding-top:80px;padding-left:10%">
 
 
-    <div class="col-md-6 col-md-offset-3">
-      <h2>Sign up</h2>
+    <div class="col-md-6 col-md-offset-4">
+      <h1 style="padding-left:8%">Sign Up</h1>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
@@ -34,8 +34,8 @@
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
-        <div class="actions" style="padding-top:32px">
-            <%= f.submit "sign up", class: "btn btn-success" %>
+        <div class="actions" style="padding-top:32px;padding-left:10%">
+            <%= f.submit "Sign Up", class: "btn btn-success" %>
         </div>
         <% end %>
  <div class="row" style="padding-top:186px">
