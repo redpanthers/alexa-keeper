@@ -179,9 +179,9 @@
       width: 100%;
       min-height: auto;
       overflow-y: hidden;
-      background: image-url('bg-pattern.png'), #7b4397;
-      background: image-url('bg-pattern.png'), -webkit-linear-gradient(to left, #7b4397, #dc2430);
-      background: image-url('bg-pattern.png'), linear-gradient(to left, #7b4397, #dc2430);
+      background: url(image-path('bg-pattern.png')), #7b4397;
+      background: url(image-path('bg-pattern.png')), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+      background: url(image-path('bg-pattern.png')), linear-gradient(to left, #7b4397, #dc2430);
       color: #fff
   }
 
