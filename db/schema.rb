@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907043759) do
+ActiveRecord::Schema.define(version: 20170106055846) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,6 +52,29 @@ ActiveRecord::Schema.define(version: 20160907043759) do
     t.index ["website_id"], name: "index_alexaranks_on_website_id"
   end
 
+  create_table "collections", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "",    null: false
@@ -74,8 +97,9 @@ ActiveRecord::Schema.define(version: 20160907043759) do
   create_table "websites", force: :cascade do |t|
     t.string   "url"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "collection_id"
     t.index ["url", "user_id"], name: "index_websites_on_url_and_user_id"
     t.index ["user_id"], name: "index_websites_on_user_id"
   end

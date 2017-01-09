@@ -1,11 +1,11 @@
  <%= render partial: 'layouts/login_nav' %>
 <div class="container">
-<div class="row" style="padding-top:50px;margin-bottom:30px">
+<div class="row" style="padding-top:80px;padding-left:10%">
 
 
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h1>Log in</h1>
+    <div class="col-md-6 col-md-offset-4">
+      <h1 style="padding-left:8%">Log In</h1>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
             <%= f.label :email %><br/>
@@ -18,7 +18,7 @@
         </div>
 
         <% if devise_mapping.rememberable? -%>
-        <div class="field" style="padding-top:20px">
+        <div class="field" style="padding-top:20px;padding-left:10%">
             <%= f.label :remember_me,class: "checkbox inline" do %>
               <%= f.check_box :remember_me %>
               <span>Remember me</span>
@@ -26,12 +26,12 @@
         </div>
         <% end -%>
 
-        <div class="actions" style="padding-top:20px">
-            <%= f.submit "Log in", class: 'btn btn-success' %>
+        <div class="actions" style="padding-top:20px;padding-left:10%">
+            <%= f.submit "Log In", class: 'btn btn-success' %>
         </div>
         <% end %>
 
-        <div class="row" style="padding-top:20px;padding-bottom:178px">
+        <div class="row" style="padding-top:20px;padding-bottom:178px;padding-left:7%">
 
         <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
       </div>
