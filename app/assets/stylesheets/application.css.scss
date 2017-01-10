@@ -456,6 +456,19 @@
     bottom: 0px;
   }
 
+.innerFoot{
+padding-top:10px;
+background-color: #800000;
+color:white;
+padding-bottom:10px;
+.msg-in{
+
+a{
+color:white !important;
+}
+}
+}
+
   .foot_in{
     position: fixed;
       background-color: black;
@@ -562,3 +575,6 @@
   height : 400px;
 }
 
+.p1{
+margin-bottom:0px;
+}

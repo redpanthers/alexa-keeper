@@ -22,17 +22,25 @@
     </head>
 
     <body>
-      <% if user_signed_in? %>
+       <% if user_signed_in? %>
         <%= render partial: 'layouts/header' %>
          <%= yield %>
          <%= render partial: 'layouts/foot_in' %>
+         <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>">
+              <%= value %>
+            </div>
+          <% end %>
       
-      <% elsif current_page?('/') %> 
+      <% elsif current_page?('/') %>
+
       <%= yield %>
         <%= render partial: 'layouts/footer' %>
+        <%= render partial: 'layouts/innerfooter' %>
         <% elsif current_page?('/users/password/new') %> 
         
         <%= yield %> 
+
       <% else %>
       <%= yield %>
       <%= render partial: 'layouts/foot_in' %>
