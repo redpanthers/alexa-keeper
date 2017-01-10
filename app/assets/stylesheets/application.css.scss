@@ -462,7 +462,6 @@ background-color: #800000;
 color:white;
 padding-bottom:10px;
 .msg-in{
-
 a{
 color:white !important;
 }
@@ -497,10 +496,27 @@ color:white !important;
   }
 
   .bg-primary {
-      background: #fdcc52;
-      background: -webkit-linear-gradient(#ffe066, #ffe066);
-      background: linear-gradient(#ff8566, #ff8566)
+      position: relative;
+      width: 100%;
+      min-height: auto;
+      overflow-y: hidden;
+      background: url(image-path('bg-pattern.png')), #fdcc52;
+      background: url(image-path('bg-pattern.png')), -webkit-linear-gradient(to left, #ffe066, #ffe066);
+      background: url(image-path('bg-pattern.png')), linear-gradient(to left, #337ab7, #337ab7);
+      color: #fff
+      
   }
+
+  .features{
+   position: relative;
+      width: 100%;
+      min-height: auto;
+      overflow-y: hidden;
+      background: url(image-path('bg-pattern.png')), #7b4397;
+      background: url(image-path('bg-pattern.png')), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+      background: url(image-path('bg-pattern.png')), linear-gradient(to left, #689F38, #00897B);
+  }
+
 
   .text-primary {
       color: #fdcc52

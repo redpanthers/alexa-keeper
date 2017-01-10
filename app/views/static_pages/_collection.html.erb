@@ -14,7 +14,7 @@
             <%= f.label :name, "Create collection" %>
             <%= f.text_field :name, class: "form-control" %>
             <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.submit "OK", class: 'btn btn-primary btn-block' %>
+            <%= f.submit "Create", class: 'btn btn-primary btn-block' %>
           <% end %>                       
           <% @collection_names.any? %><br>       
           <div class="panel-group" id="accordion">
