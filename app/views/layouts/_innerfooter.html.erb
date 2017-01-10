@@ -10,7 +10,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 class="modal-title">Feedback</h1>
+          <h1 class="modal-title" style="text-align:center">Feedback</h1>
           <%= form_for (Feedback.new) do |f| %>
         <div class="field">
             <%= f.label :name,"Name" %><br/>
@@ -27,7 +27,7 @@
             <%= f.text_area :message, size: "68x6" %>
         </div>
        
-        <%= f.submit "OK", class: 'btn btn-default' %>
+        <%= f.submit "Send", class: 'btn btn-default'%>
         <% end %>
     
         </div>
