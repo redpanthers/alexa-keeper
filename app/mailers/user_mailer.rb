@@ -6,6 +6,14 @@ class UserMailer < ApplicationMailer
     @url  = 'rankhub.co'
     mail(to: @user, subject: 'Welcome to RankHub')
   end
+
+  def invite_email(invite,str,hash)
+    @invite = invite
+    @str = str
+    @hash = hash
+    @url  = 'http://localhost:3000/'+@hash
+    mail(to: @invite.email, subject: 'Welcome to RankHub')
+  end
   
   def contact_email(conc)
     @cont = conc

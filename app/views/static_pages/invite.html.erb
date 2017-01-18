@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row" style="padding-top:50px">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <h1 style="margin-bottom:30px;margin-left:12%;margin-top:25%"> Request for Invite</h1>
+      <marquee><h5 style="text-align:center">Kindly enter your Name and E-mail address to get an exclusive invite for using RANKHUB</h5></marquee>
+
+<%= form_for Invite.new, :url => invites_path(@user) do |f| %>
+
+        <div class="field">
+          <%= f.label :name,"Name" %><br/>
+          <%= f.text_field :name ,class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email ,"Email"%><br/>
+          <%= f.email_field :email,  autofocus: true, class: 'form-control'%>
+        </div>
+          <div class="actions" style="padding-top:32px;padding-left:40%">
+          <%= f.submit "Submit", class: "btn btn-success" %>
+        </div>
+<% end %>  
+</div>
+ <div class="col-md-4">
+    </div>
+    </div>
+    <% flash.each do |message_type, message| %>
+       <% if message == "Thank You for requesting an invitation to use RankHub. We would shortly send you an invitation code to register at RankHub" %>
+         <div class="panel panel-success" style="border:none">
+         <div class="panel-heading" style="margin-left:13%;margin-right:13%;margin-top:40px"><%= message %></div>
+         </div>
+       <% end %>
+     <% end %>
+  </div>

@@ -2,39 +2,9 @@
 <div class="innerFoot" style="background-color:#800000;padding-top:10px;color:white;padding-bottom:10px;">
   <div class="container ">
     <div class="msg-in">
-      You’re viewing a beta version of the new RankHub website. <a data-toggle="modal" href="#fbModal" ><b>Leave Feedback</b></a>
-       <div class="modal fade" id="fbModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 class="modal-title" style="text-align:center">Feedback</h1>
-          <%= form_for (Feedback.new) do |f| %>
-        <div class="field">
-            <%= f.label :name,"Name" %><br/>
-            <%= f.text_field :name ,class: 'form-control' %>
-        </div>
-
-        <div class="field">
-            <%= f.label :email ,"Email"%><br/>
-            <%= f.email_field :email,  autofocus: true, class: 'form-control' %>
-        </div>
- 
-        <div class="field">
-            <%= f.label :message,"Your Feedback" %><br/>
-            <%= f.text_area :message, size: "68x6" %>
-        </div>
-       
-        <%= f.submit "Send", class: 'btn btn-default'%>
-        <% end %>
-    
-        </div>
-      </div>
+      You’re viewing a beta version of the new RankHub website.   
+      <%= link_to 'Leave Feedback', static_pages_feedback_path %>
       
-    </div>
-  </div>
     </div>
   </div>
 </div>
