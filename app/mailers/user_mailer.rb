@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'nimmy@redpanthers.co'
+  default from: 'rankhub@gmail.com'
  
   def welcome_email(user)
     @user = user
@@ -17,12 +17,12 @@ class UserMailer < ApplicationMailer
   
   def contact_email(conc)
     @cont = conc
-    mail(to: "nimmy@redpanthers.co", subject: 'RankHub')
+    mail(to: "rankhub@gmail.com", subject: 'RankHub')
   end
   
   def feedback_email(fb)
     @feedback=fb
-    mail(to: "nimmy@redpanthers.co", subject: 'RankHub')
+    mail(to: "rankhub@gmail.com", subject: 'RankHub')
     
   end
 
