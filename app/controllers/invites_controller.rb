@@ -6,7 +6,7 @@ class InvitesController < ApplicationController
   hash=params[:hash]
   session[:hash]=hash
  
-  redirect_to new_user_registration_path
+  redirect_to static_pages_token_path
  end
 
 
@@ -14,8 +14,13 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new(invite_params)   
     if @invite.save  
-      redirect_to static_pages_invite_path
+    
       flash[:note]="Thank You for requesting an invitation to use RankHub. We would shortly send you an invitation code to register at RankHub"
+
+    
+      redirect_to static_pages_invite_path
+
+      
     end
   end
   def mail

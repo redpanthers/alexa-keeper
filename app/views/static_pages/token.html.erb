@@ -11,20 +11,16 @@
         </div>
       <%= f.submit "Submit", class: 'btn btn-success' ,style: 'margin-left:9%;margin-top:20px'%>
         <% end %>
-       <% flash.each do |message_type, message| %>
-       <% if message == "Kindly enter the invite code you have received" %>
-         <div class="panel panel-danger" style="border:none">
-         <div class="panel-heading" style="margin-left:-12%;margin-right:53%;margin-top:40px"><%= message %></div>
-         </div>
-       <% end %>
-     <% end %>
-     <% flash.each do |message_type, message| %>
-       <% if message == "The invite code you are trying to use has expired. Kindly send a mail to admin@rankhub.co for a new invite code" %>
-         <div class="panel panel-danger" style="border:none">
-         <div class="panel-heading" style="margin-left:-55%;margin-right:20%;margin-top:40px"><%= message %></div>
-         </div>
-       <% end %>
-     <% end %>
+      
+   <div class="row" style="margin-left:-50%;margin-top:4%;font-style:italic">
+  <%= flash[:msg]%>
+</div>
+
+
+    <div class="row" style="margin-left:-9%;margin-top:4%;font-style:italic">
+  <%= flash[:message]%>
+</div>
   </div>
 </div>
 </div>
+
