@@ -6,7 +6,7 @@ class CollectionsController < ApplicationController
     @collection.save
     last_id = Collection.maximum('id')
     @domains = Website.where(:user_id => current_user)
-    @domains.where("collection_id IS ?", nil).update(collection_id: last_id)
+    @domains.where("collection_id IS ?", nil).update( collection_id: last_id )
     redirect_to root_url
   end
   def collection
