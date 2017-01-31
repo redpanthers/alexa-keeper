@@ -1,8 +1,7 @@
 .sidenav {
     height: 100%;
     width: 0;
-    position: fixed;
-    z-index: 1;
+    position:fixed;
     top: 0;
     left: 0;
     background-color: #111;
@@ -24,7 +23,7 @@
 
 .sidenav .closebtn {
     position: absolute;
-    
+
     right: 8%;
     font-size: 20px;
     margin-left: 50px;
@@ -633,6 +632,16 @@ color:white !important;
 margin-bottom:0px;
 }
 
+.pic_beta{
+ background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center;
+  width: 62%;
+    height: 78px;
+    margin-left: -63%;
+    margin-top: -12%;
+
+}
 
 
 button.accordion {
