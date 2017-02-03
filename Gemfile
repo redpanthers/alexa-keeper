@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.3.1"
 gem 'devise'
 gem 'whenever'
 gem 'bootstrap-sass', '~> 3.3.6'
