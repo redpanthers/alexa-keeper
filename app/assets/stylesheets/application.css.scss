@@ -35,6 +35,25 @@
     padding: 16px;
 }
 
+.home-text{
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+}
+
 
   .heading-font {
       font-family: Catamaran, Helvetica, Arial, sans-serif;
@@ -634,14 +653,14 @@ margin-bottom:0px;
 }
 
 .pic_beta{
- background-repeat: no-repeat;
+   background-repeat: no-repeat;
    background-size: contain;
    background-position: center;
-  width: 62%;
-    height: 78px;
-    margin-left: -63%;
-    margin-top: -12%;
-
+   width: 62%;
+   height: 78px;
+   margin-left: -63%;
+   margin-top: -12%;
+  
 }
 
 
