@@ -498,6 +498,7 @@ background-color: #800000;
 color:white;
 padding-bottom:10px;
 .msg-in{
+text-align:center;
 a{
 color:white !important;
 }
@@ -666,6 +667,13 @@ button.accordion:after {
     float: right;
     margin-left: 5px;
 }
+
+.field{
+margin-left:-14%;
+margin-right:14%
+}
+
+
 
 button.accordion.active:after {
     content: "\2212";

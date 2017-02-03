@@ -16,15 +16,18 @@ Rails.application.routes.draw do
   delete 'static_pages/destroy'
 
   get 'static_pages/show'
-  get 'static_pages/invite'
-  get 'static_pages/contact'
-  get 'static_pages/terms'
-  get 'static_pages/privacy'
-  get 'static_pages/collection'
-  get 'static_pages/accept'
-  get 'static_pages/token'
-  get 'static_pages/feedback'
+  get '/invite',to:'static_pages#invite', :as => :static_invite
+  get '/contact',to:'static_pages#contact', :as => :static_contact
+  get '/terms' ,to:'static_pages#terms', :as => :static_terms
+  get '/privacy',to:'static_pages#privacy', :as => :static_privacy
+  get '/collection',to:'static_pages#collection', :as => :static_collection
+  get '/accept',to:'static_pages#accept', :as => :static_accept
+  get '/token',to:'static_pages#token', :as => :static_token
+  get '/feedback',to:'static_pages#feedback', :as => :static_feedback
   get 'device/registrations/accept'
+
+
+
   
   get 'device/registrations/new'
   

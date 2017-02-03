@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       flash[:note]="Your message successfully saved"
-          redirect_to static_pages_contact_path
+          redirect_to static_contact_path
       UserMailer.contact_email(@contact).deliver_now
       
     end
