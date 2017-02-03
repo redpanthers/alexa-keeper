@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
     @invite = invite
     @str = str
     @hash = hash
-    @url  = 'http://localhost:3000/'+@hash
+    @url  = 'rankhub.co'+@hash
     mail(to: @invite.email, subject: 'Welcome to RankHub')
   end
   
