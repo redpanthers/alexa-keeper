@@ -1,9 +1,33 @@
+<div class="modal fade" id="demo1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <%= form_for (@collection) do |f| %>
+            <div class="col-md-9">
+              <%= f.text_field :name,class:'form-control',placeholder:"Add list" %>
+            </div>
+            <div class="col-md-3">
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right'%>
+            </div>
+          <% end %> 
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
 <div class="row" style="padding-top:152px;margin-bottom:350px">
   
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-   <button class="accordion"  data-toggle="collapse" data-target="#demo">Lists</button>
+   <button class="accordion" style="padding-left:18px;padding-right:18px;padding-bottom:0px;color:#00ffff" data-toggle="collapse" data-toggle="collapse" data-target="#demo">Lists</button>
 
     <div id="demo" class="collapse">
         <% collection_nil = [] %>   
@@ -28,7 +52,7 @@
           <%= link_to "Delete", collection_path(collect.id),
           data: { confirm: "Are you sure?" }, style: "color: #ffff99
 ;padding-left:10%;font-style:italic",method: :delete %> 
-            <div id="collapse<%= index+1 %>" class="panel-collapse collapse"><div class="panel-body">
+         <div id="collapse<%= index+1 %>" class="panel-collapse collapse"><div class="panel-body">
               <div class="row">
                       <%= form_for (@website) do |f| %> 
                         <div class="col-md-9">
@@ -48,23 +72,7 @@
               
             <% end %>
           </div>
-          <button class="accordion"  data-toggle="collapse" data-target="#demo1">Add new list</button>
-    <div id="demo1" class="collapse">
-      <div class="panel-body">
-      <div class="row">
-        <%= form_for (@collection) do |f| %>
-        <div class="col-md-9">
-        <%= f.text_field :name,class:'form-control',placeholder:"Add list" %>
-       
-        </div>
-        <div class="col-md-3">
-           <%= f.hidden_field :user_id, value: current_user.id %>
-         <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right'%>
-        </div>
-        <% end %>  
-      </div>
-    </div>
-    </div>
+     <a style="color: #00ffff;text-decoration:none;margin-left:5%;font-size:20px" data-toggle="modal" data-target="#demo1" >Add new list</a>
     </div>
  </div>
  
