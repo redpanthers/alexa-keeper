@@ -1,20 +1,28 @@
 class UserMailer < ApplicationMailer
-  default from: 'nimmy@redpanthers.co'
+  default from: 'rankhub@gmail.com'
  
   def welcome_email(user)
     @user = user
     @url  = 'rankhub.co'
-    mail(to: @user, subject: 'Welcome to My Awesome Site')
+    mail(to: @user, subject: 'Welcome to RankHub')
+  end
+
+  def invite_email(invite,str,hash)
+    @invite = invite
+    @str = str
+    @hash = hash
+    @url  = 'rankhub.co'+@hash
+    mail(to: @invite.email, subject: 'Welcome to RankHub')
   end
   
   def contact_email(conc)
     @cont = conc
-    mail(to: "nimmy@redpanthers.co", subject: 'Welcome to My Awesome Site')
+    mail(to: "rankhub@gmail.com", subject: 'RankHub')
   end
   
   def feedback_email(fb)
     @feedback=fb
-    mail(to: "nimmy@redpanthers.co", subject: 'Welcome to My Awesome Site')
+    mail(to: "rankhub@gmail.com", subject: 'RankHub')
     
   end
 

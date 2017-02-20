@@ -2,17 +2,22 @@
 
 <footer class="foot_in">
   <div class="container cont-foot">
-                   <p>&copy; 2016 All Rights Reserved.</p>
+                   <p>&copy; <%= Time.now.year%> All Rights Reserved.</p>
             <ul class="list-inline">
                 <li>
-                   <%= link_to 'Contact', static_pages_contact_path %>
+                   <%= link_to 'Contact', static_contact_path %>
                 </li>
                
                 <li>
-                     <%= link_to 'Terms of Services', static_pages_terms_path %>
+                     <%= link_to 'Terms of Services', static_terms_path %>
                 </li>
                 <li>
-         <%= link_to 'Privacy', static_pages_privacy_path %>        </li>
+         <%= link_to 'Privacy', static_privacy_path %>     
+            </li>
             </ul>
         </div>
+         <div class="f1" style="margin-bottom:-10px;text-align:left">
+         <%= render partial: 'layouts/innerfooter' %>
+       </div>
     </footer>
+

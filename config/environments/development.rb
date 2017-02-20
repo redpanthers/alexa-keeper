@@ -31,13 +31,13 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  user_name:            'nimmyvipin25@gmail.com',
-  password:             'lordmontecristo',
+  user_name:            ENV["GMAIL_USERNAME"],
+  password:             ENV["GMAIL_PASSWORD"],
   authentication:       'plain',
   enable_starttls_auto: true  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'nimmyvipin25@gmail.com'}
+  config.action_mailer.default_options = {from: 'admin@gmail.com'}
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
@@ -61,6 +61,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  Rails.application.routes.default_url_options[:host] = 'rankhub.co'
 end
 

@@ -1,6 +1,7 @@
 <footer >
         <div class="container">
-            <p>&copy; 2016 All Rights Reserved.</p>
+            <p>&copy; <%= Time.now.year%>
+ All Rights Reserved.</p>
             <ul class="list-inline">
                 <li>
                    <a data-toggle="modal" href="#cntModal">Contact</a>
@@ -11,24 +12,25 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 class="modal-title">Contact Us</h1>
+          <h1 class="modal-title" style="text-align:center">Contact Us</h1>
           <%= form_for (Contact.new) do |f| %>
-     <div class="field">
+     <div class="field" style="margin-left:8%;margin-right:8%" >
             <%= f.label :name,"Name" %><br/>
             <%= f.text_field :name ,class: 'form-control' %>
         </div>
 
-        <div class="field">
+        <div class="field" style="margin-left:8%;margin-right:8%" >
             <%= f.label :email ,"Email"%><br/>
-            <%= f.email_field :email,  autofocus: true, class: 'form-control' %>
+            <%= f.email_field :email, autofocus: true, class: 'form-control' %>
         </div>
  
-        <div class="field">
+        <div class="field" style="margin-left:8%;margin-right:8%" >
             <%= f.label :message,"Message" %><br/>
-            <%= f.text_area :message, size: "67x6" %>
+            <%= f.text_area :message,class:'form-control',size: "68x6" %>
         </div>
        
-        <%= f.submit "OK", class: 'btn btn-success btn pull-right' %>
+        <br>
+        <%= f.submit "Send", class: 'btn btn-default btn pull-right',style:'margin-right:8%' %>
         <% end %>
     
         </div>
@@ -39,7 +41,7 @@
                 </li>
                
                 <li>
-                    <a data-toggle="modal" href="#myModal">Terms of Services</a>
+                    <a data-toggle="modal" href="#myModal" style="text-align:center">Terms of Services</a>
                     <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -47,8 +49,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 class="modal-title">Terms of Service</h1>
-          <p>Last updated: December 30, 2016</p>
+          <h1 class="modal-title" style="text-align:center">Terms of Service</h1>
+          <p style="text-align:center">Last updated: December 30, 2016</p>
         </div>
         <div class="modal-body">
           <p>Please read these Terms of Service carefully before using the www.rankhub.co website (the "Service") operated by Red Panthers .</p>
@@ -88,7 +90,7 @@
   </div>
                 </li>
                 <li>
-         <a data-toggle="modal" href="#prModal">Privacy</a>
+         <a data-toggle="modal" href="#prModal" >Privacy</a>
                     <div class="modal fade" id="prModal" role="dialog">
     <div class="modal-dialog">
     
@@ -96,8 +98,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 class="modal-title">Privacy policy</h1>
-          <p>Last updated: December 30, 2016</p>
+          <h1 class="modal-title" style="text-align:center">Privacy policy</h1>
+          <p style="text-align:center">Last updated: December 30, 2016</p>
         </div>
         <div class="modal-body">
          <p>Red Panthers (&quot;us&quot;, &quot;we&quot;, or &quot;our&quot;) operates the http://www.rankhub.co website (the &quot;Service&quot;).</p>

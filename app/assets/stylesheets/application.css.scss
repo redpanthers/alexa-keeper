@@ -1,5 +1,127 @@
 
 
+  .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+  }
+
+  .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      left: 50%;
+      margin-left: -60px;
+  }
+
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+  }
+      
+      #myModal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 14%;
+      top: -7%;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  .modal-contents {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      margin-left: 5%;
+      border: 1px solid #888;
+      width: 30%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+  }
+  @-webkit-keyframes animatetop {
+      from {top:-300px; opacity:0} 
+      to {top:0; opacity:1}
+  }
+
+  @keyframes animatetop {
+      from {top:-300px; opacity:0}
+      to {top:0; opacity:1}
+  }
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position:fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 50px;
+}
+
+.sidenav button {
+    margin-top:15%;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s
+}
+
+
+
+.sidenav .closebtn {
+    position: absolute;
+
+    right: 8%;
+    font-size: 20px;
+    margin-left: 50px;
+    color:white;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+.home-text{
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+}
+
+
   .heading-font {
       font-family: Catamaran, Helvetica, Arial, sans-serif;
       font-weight: 200;
@@ -456,6 +578,19 @@
     bottom: 0px;
   }
 
+.innerFoot{
+padding-top:10px;
+background-color: #800000;
+color:white;
+padding-bottom:10px;
+.msg-in{
+text-align:center;
+a{
+color:white !important;
+}
+}
+}
+
   .foot_in{
     position: fixed;
       background-color: black;
@@ -484,10 +619,28 @@
   }
 
   .bg-primary {
-      background: #fdcc52;
-      background: -webkit-linear-gradient(#ffe066, #ffe066);
-      background: linear-gradient(#ff8566, #ff8566)
+      position: relative;
+      width: 100%;
+      min-height: auto;
+      overflow-y: hidden;
+      background: url(image-path('bg-pattern.png')), #fdcc52;
+      background: url(image-path('bg-pattern.png')), -webkit-linear-gradient(to left, #ffe066, #ffe066);
+      background: url(image-path('bg-pattern.png')), linear-gradient(to left, #337ab7, #337ab7);
+      color: #fff
+      
   }
+
+  .features{
+   position: relative;
+      width: 100%;
+      min-height: auto;
+      overflow-y: hidden;
+      background: url(image-path('bg-pattern.png')), #7b4397;
+      background: url(image-path('bg-pattern.png')), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+      background: url(image-path('bg-pattern.png')), linear-gradient(to left, #689F38, #00897B);
+      
+  }
+
 
   .text-primary {
       color: #fdcc52
@@ -562,3 +715,67 @@
   height : 400px;
 }
 
+.p1{
+margin-bottom:0px;
+}
+
+.pic_beta{
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center;
+   width: 62%;
+   height: 78px;
+   margin-left: -63%;
+   margin-top: -12%;
+  
+}
+
+
+button.accordion {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 22px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: transparent;
+}
+
+button.accordion:after {
+    content: '\002B';
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.field{
+margin-left:-14%;
+margin-right:14%
+}
+
+
+
+button.accordion.active:after {
+    content: "\2212";
+}
+
+
+
+
+
+div.panel {
+    padding: 0 18px;
+    background-color: transparent;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    p{
+    font-size:18px;
+    }
+}

@@ -2,22 +2,30 @@
 
 
 <div class="container">
-  <div class="row" style="padding-top:80px;padding-left:10%">
-
-
-    <div class="col-md-6 col-md-offset-4">
-      <h1 style="padding-left:8%">Sign Up</h1>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div class="field">
+  <div class="row">
+    <div class="col-md-7 col-md-offset-4" style="margin-top:5%;font-size:12px">
+  
+  </div>
+</div>
+  <div class="row" style="padding-left:10%">
+    <div class="col-md-4 col-md-offset-4">
+       <h1 style="margin-left:14%"> Sign Up</h1>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        
+    <div class="field" >
+             <%= f.label :invite_code %><br/>
+            <%= f.text_field :token, class:'form-control', value: session[:token], 
+            :readonly => true, autofocus: true %>
+        </div>
+   
+      <div class="field">
             <%= f.label :name %><br/>
-            <%= f.text_field :name %>
+            <%= f.text_field :name ,class:'form-control'%>
         </div>
 
         <div class="field">
             <%= f.label :email %><br/>
-            <%= f.email_field :email, autofocus: true %>
+            <%= f.email_field :email, class:'form-control', autofocus: true %>
         </div>
 
         <div class="field">
@@ -26,20 +34,23 @@
             <em>(<%= @minimum_password_length %>
                 characters minimum)</em>
             <% end %><br/>
-            <%= f.password_field :password, autocomplete: "off" %>
+            <%= f.password_field :password,class:'form-control', autocomplete: "off" %>
         </div>
 
         <div class="field">
             <%= f.label :password_confirmation %><br/>
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <%= f.password_field :password_confirmation, class:'form-control',autocomplete: "off" %>
         </div>
 
-        <div class="actions" style="padding-top:32px;padding-left:10%">
+        <div class="actions" style="padding-top:32px;padding-left:20%">
             <%= f.submit "Sign Up", class: "btn btn-success" %>
         </div>
+
+        <%= devise_error_messages! %>
         <% end %>
+
  <div class="row" style="padding-top:186px">
-     
+   
        </div>
     </div>
   </div>

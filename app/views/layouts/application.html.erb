@@ -22,20 +22,29 @@
     </head>
 
     <body>
-      <% if user_signed_in? %>
+       <% if user_signed_in? %>
         <%= render partial: 'layouts/header' %>
          <%= yield %>
          <%= render partial: 'layouts/foot_in' %>
+         
+       
+       
       
-      <% elsif current_page?('/') %> 
+      <% elsif current_page?('/') %>
+
       <%= yield %>
         <%= render partial: 'layouts/footer' %>
+       
         <% elsif current_page?('/users/password/new') %> 
         
         <%= yield %> 
+     
       <% else %>
+      <%= render partial: 'layouts/header' %>
       <%= yield %>
       <%= render partial: 'layouts/foot_in' %>
+
+     
       <% end %>
        
     </body>
