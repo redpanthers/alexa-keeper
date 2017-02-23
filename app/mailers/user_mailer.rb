@@ -26,4 +26,9 @@ class UserMailer < ApplicationMailer
     
   end
 
+ def weekly_mail(user,data)
+     @user = user.email
+     @d = data
+     mail to: @user, subject: "Mail journalier"
+ end
 end
