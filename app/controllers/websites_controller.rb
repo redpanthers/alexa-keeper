@@ -1,14 +1,12 @@
 class WebsitesController < ApplicationController
-
   def create
     @website = current_user.websites.build(website_params)
     if @website.save
       @sites_count=Website.count('id')
       @site_name=[]
       current_user.websites.each do |website|
-          @site_name << website.url
+        @site_name << website.url
       end
-      
       @each_user_sites=current_user.websites.count
       if User.exists?
         current_user.update(sites: @site_name)
@@ -26,7 +24,6 @@ class WebsitesController < ApplicationController
     FetchRankJob.perform_later(@website) 
     redirect_to root_url
   end
-
   def show
     website          = Website.find(params[:id])
     @alexa_rank_json = WebsitesHelper.createJSON(website)
@@ -40,8 +37,8 @@ class WebsitesController < ApplicationController
       @sites_count=Website.count('id')
       @site_name=[]
       current_user.websites.each do |website|
-          @site_name << website.url
-        end
+        @site_name << website.url
+      end
       @each_user_sites=current_user.websites.count
       if User.exists?
         current_user.update(sites: @site_name)
@@ -63,5 +60,4 @@ class WebsitesController < ApplicationController
     def website_params
       params.require(:website).permit(:url, :user_id, :collection_id)
     end
-  
-end
+  end
