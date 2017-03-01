@@ -6,5 +6,5 @@ class User < ApplicationRecord
          :validatable
   has_many :websites, dependent: :destroy
   has_many :collections
-  validates_uniqueness_of :token
+  validates_uniqueness_of :token, allow_nil: true
 end
