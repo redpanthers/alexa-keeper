@@ -6,26 +6,23 @@
   <br>Week End Rank:
   <%= data[:rank1] %>
   <br>
-  <% if data[:change] == 0 %>
+  <% if data[:change] == 0 %> 
+  <br>
   
-    <div class = "symbol" style="margin-top:5%">
-      
-      <%= image_tag("http://photos.gograph.com/thumbs/CSP/CSP638/k20747308.jpg",
-      :height=>40, :width=>40, :alt => "image") %>
-    </div>
+  No change  
+      <%= image_tag("http://www.iconsdb.com/icons/preview/orange/minus-4-xxl.png",
+      :height=>20, :width=>20, :alt => "image", :style => " padding-left: 10px; position: absolute !important;") %> 
   <%end%>
-
   <% if data[:change] > 0 %>
-    <%= image_tag("http://www.bseindia.com/stock-share-price/include/Images/MktInd13.gif",
-    :height=>40, :width=>40,  :alt => "image") %>
+    <%= image_tag("http://www.iconsdb.com/icons/preview/green/up-circular-xxl.png",
+    :height=>20, :width=>20,  :alt => "image") %>
     <%= data[:change] %>
   <% elsif data[:change] < 0 %>
-    <%= image_tag("http://www.bseindia.com/stock-share-price/include/Images/MktInd7.gif",
-    :height=>40, :width=>40,  :alt => "image") %>
+    <%= image_tag("http://www.iconsdb.com/icons/preview/red/down-circular-xxl.png",
+    :height=>20, :width=>20,  :alt => "image") %>
     <%= data[:change] %>
   <%end%>
 </h2>
   
   <br>
 <%end%>
- 
