@@ -1,28 +1,59 @@
 class WebsitesController < ApplicationController
   def create
-    @website = current_user.websites.build(website_params)
-    if @website.save
-      @sites_count=Website.count('id')
-      @site_name=[]
-      current_user.websites.each do |website|
-        @site_name << website.url
+    already_exist = Website.find_by(url: params[:website][:url])
+    if already_exist && params[:website][:collection_id]
+      website = CollectionWebsite.where("collection_id = ?", params[:website][:collection_id])
+                                 .where("website_id = ?", already_exist.id)
+                                 .first
+      if website.nil?
+        CollectionWebsite.create!(collection_id: params[:website][:collection_id], website_id: already_exist.id)
       end
-      @each_user_sites=current_user.websites.count
-      if User.exists?
-        current_user.update(sites: @site_name)
-        current_user.update(sites_number: @each_user_sites)
-      else
-        current_user.create(sites: @site_name)
-        current_user.create(sites_number: @each_user_sites)
-      end
+      @sites_count=CollectionWebsite.count('id')
       if Statistic.exists?
-        Statistic.update(sites: @sites_count) 
+        Statistic.first.update_attribute(:sites, @sites_count) 
       else
         Statistic.create(sites: @sites_count)
       end
-    end
-    FetchRankJob.perform_later(@website) 
-    redirect_to root_url
+      @site_name=[]
+        current_user.websites.each do |website|
+          @site_name << website.url
+        end
+      @each_user_sites=current_user.websites.count
+      if User.exists?
+        current_user.update(sites: @site_name)
+        current_user.update(site_number: @each_user_sites)
+      else
+        current_user.create(sites: @site_name)
+        current_user.create(site_number: @each_user_sites)
+      end
+      redirect_to root_url
+    else
+      @website = Website.new(website_create_params)
+      if @website.save
+        CollectionWebsite.create(collection_id: params[:website][:collection_id],
+                                   website_id: @website.id)
+        @sites_count=CollectionWebsite.count('id')
+        if Statistic.exists?
+          Statistic.first.update_attribute(:sites, @sites_count) 
+        else
+          Statistic.create(sites: @sites_count)
+        end
+        @site_name=[]
+          current_user.websites.each do |website|
+            @site_name << website.url
+          end
+        @each_user_sites=current_user.websites.count
+        if User.exists?
+          current_user.update(sites: @site_name)
+          current_user.update(site_number: @each_user_sites)
+        else
+          current_user.create(sites: @site_name)
+          current_user.create(site_number: @each_user_sites)
+        end
+        FetchRankJob.perform_later(@website)
+        redirect_to root_url
+      end
+   end
   end
   def show
     website          = Website.find(params[:id])
@@ -33,31 +64,32 @@ class WebsitesController < ApplicationController
   end
 
   def destroy
-    if Website.destroy(params[:id])
-      @sites_count=Website.count('id')
-      @site_name=[]
+    CollectionWebsite.where(collection_id: params[:collection_id]).where(website_id: params[:id]).first.destroy
+    @site_name=[]
       current_user.websites.each do |website|
         @site_name << website.url
       end
-      @each_user_sites=current_user.websites.count
-      if User.exists?
-        current_user.update(sites: @site_name)
-        current_user.update(sites_number: @each_user_sites)
-      else
-        current_user.create(sites: @site_name)
-        current_user.create(sites_number: @each_user_sites)
-      end
-      if Statistic.exists?
-        Statistic.update(sites: @sites_count) 
-      else
-        Statistic.create(sites: @sites_count)
-      end
-      redirect_to root_url
+    @each_user_sites=current_user.websites.count
+    if User.exists?
+      current_user.update(sites: @site_name)
+      current_user.update(site_number: @each_user_sites)
+    else
+      current_user.create(sites: @site_name)
+      current_user.create(site_number: @each_user_sites)
     end
+    @sites_count=CollectionWebsite.count('id')
+    if Statistic.exists?
+      Statistic.first.update_attribute(:sites, @sites_count) 
+    else
+      Statistic.create(sites: @sites_count)
+    end
+      redirect_to root_url
   end
-
   private
     def website_params
       params.require(:website).permit(:url, :user_id, :collection_id)
     end
-  end
+    def website_create_params
+      website_params.select{|x| Website.attribute_names.index(x)}
+    end
+end
