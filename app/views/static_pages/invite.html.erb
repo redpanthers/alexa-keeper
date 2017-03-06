@@ -1,33 +1,32 @@
+<!-- Rankhub User Invite Page -->
 <div class="container">
-  <div class="row" style="padding-top:50px">
-    
+  <div class="row invite-section">
     <div class="col-md-4 col-md-offset-4">
-      <h1 style="margin-bottom:30px;margin-left:10%;margin-top:25%"> Request for Invite</h1>
-      <marquee><h5 style="text-align:center">Kindly enter your Name and E-mail address to get an exclusive invite for using RANKHUB</h5></marquee>
-
-<%= form_for Invite.new, :url => invites_path(@user) do |f| %>
-
-        <div class="field" style="margin-left:14%">
+      <h1> Request for Invite</h1>
+      <marquee>
+        <h5 class="text-center">Kindly enter your Name and E-mail address to get an exclusive invite for using RANKHUB</h5>
+      </marquee>
+      <%= form_for Invite.new, :url => invites_path(@user) do |f| %>
+        <div class="field">
           <%= f.label :name,"Name" %><br/>
-          <%= f.text_field :name ,class: 'form-control' %>
+            <%= f.text_field :name ,class: 'form-control' %>
         </div>
-
-        <div class="field" style="margin-left:14%">
+        <div class="field">
           <%= f.label :email ,"Email"%><br/>
-          <%= f.email_field :email,  autofocus: true, class: 'form-control'%>
-          <%= f.hidden_field :accept, value: "true" %>
+            <%= f.email_field :email,  autofocus: true, class: 'form-control'%>
+              <%= f.hidden_field :accept, value: "true" %>
         </div>
-          <div class="actions" style="padding-top:32px;padding-left:40%">
+        <div class="actions">
           <%= f.submit "Submit", class: "btn btn-success" %>
         </div>
-<% end %>  
-</div>
- 
+        <% end %>
     </div>
-    
-
-<div class="row" style="margin-left:12%;margin-top:4%;font-style:italic">
-  <%= flash[:note]%>
+  </div>
+  <div class="row invite-flash-message">
+    <% if flash[:note] %>
+      <div class="alert alert-success">
+        <%= flash[:note]%>
+      </div>
+      <% end %>
+  </div>
 </div>
-</div>
-
