@@ -8,6 +8,6 @@ task :email_sender => :environment do
       change = rank1-rank2 if rank1 && rank2 
       data << { url: website.url, rank: rank1, rank1:rank2, change: change } 
     end 
-    UserMailer.weekly_mail(user,data).deliver_now if Date.current.friday? 
+    UserMailer.weekly_mail(user,data).deliver_now if Date.current.monday? 
   end 
 end
