@@ -6,6 +6,7 @@ class WebsitesController < ApplicationController
                                  .where("website_id = ?", already_exist.id)
                                  .first
       if website.nil?
+        redirect_to root_url
         CollectionWebsite.create!(collection_id: params[:website][:collection_id], website_id: already_exist.id)
       end
       @sites_count=CollectionWebsite.count('id')
