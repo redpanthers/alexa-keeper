@@ -30,6 +30,7 @@ class WebsitesController < ApplicationController
     else
       @website = Website.new(website_create_params)
       if @website.save
+        redirect_to root_url
         CollectionWebsite.create(collection_id: params[:website][:collection_id],
                                    website_id: @website.id)
         @sites_count=CollectionWebsite.count('id')
