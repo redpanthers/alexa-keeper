@@ -74,6 +74,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 50px;
+    z-index: 1;
     
 }
 
@@ -597,7 +598,7 @@ color:white !important;
     width:100%;
     height:auto;
     overflow:hidden;
-  
+    z-index: 2;
     bottom: 0px;
   }
 
