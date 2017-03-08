@@ -52,7 +52,7 @@ class WebsitesController < ApplicationController
           current_user.create(site_number: @each_user_sites)
         end
         FetchRankJob.perform_later(@website)
-        redirect_to root_url
+        
       end
    end
   end
