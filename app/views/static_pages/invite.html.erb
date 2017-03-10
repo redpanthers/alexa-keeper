@@ -3,9 +3,9 @@
   <div class="row invite-section">
     <div class="col-md-4 col-md-offset-4">
       <h1> Request for Invite</h1>
-      <marquee>
-        <h5 class="text-center">Kindly enter your Name and E-mail address to get an exclusive invite for using RANKHUB</h5>
-      </marquee>
+      
+        <h5 class="text-center">Kindly enter your Name and E-mail address to get an exclusive invite for using RankHub</h5>
+      
       <%= form_for Invite.new, :url => invites_path(@user) do |f| %>
         <div class="field">
           <%= f.label :name,"Name" %><br/>
