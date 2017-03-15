@@ -8,8 +8,10 @@
             <nav>
                 <ul class="nav navbar-nav navbar-right">
                     <div class="dropdown collections-navbar-right">
+
                         <li data-toggle="dropdown">
                             <%= link_to current_user.email, root_path, class:'load collections-navbar-links' %>
+                            <span class = "caret dropdown-arrow"></span>
                         </li>
                         <ul class="dropdown-menu load collections-navbar-right-links">
                             <li>
