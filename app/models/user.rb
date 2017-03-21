@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
   has_many :collections
   has_many :websites, through: :collections
-
+  validates :token, :name, presence: true
   validates_uniqueness_of :token
 end

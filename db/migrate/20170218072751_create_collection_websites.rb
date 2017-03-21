@@ -4,7 +4,6 @@ class CreateCollectionWebsites < ActiveRecord::Migration[5.0]
       t.integer :collection_id
       t.integer :website_id
       t.boolean :is_deleted, default: false
-
       t.timestamps
     end
   end

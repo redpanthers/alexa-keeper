@@ -13,20 +13,19 @@ module WebsitesHelper
       ranks          << rank_date_pair
       dates          << site.created_at.strftime('%Y-%m-%d')
     end
-
     series            = []
     series           << { :name => url,  :data => ranks}
    
     res               = {}
-    res['title']      ={:text           =>'Alexa Rank'}
+    res['title']      = {:text           =>'Alexa Rank'}
 
-    res['subtitle']   ={:text           => descript }
+    res['subtitle']   = {:text           => descript }
     
-    res['xAxis']      ={:categories     => dates.uniq,
+    res['xAxis']      = {:categories     => dates.uniq,
                         :title          => {text: 'Date(YYYY-mm-dd)'},
                         :min            => 0
                         }
-    res['yAxis']      ={:reversed   => 'true',
+    res['yAxis']      = {:reversed   => 'true',
                         :title      => { :text => 'Alexa Rank'},
                         :labels     =>{},
                         :plotLines  =>[{:value => 0,
@@ -36,7 +35,5 @@ module WebsitesHelper
     res['series']      = series
   
     res.to_json
-  
-
   end
 end

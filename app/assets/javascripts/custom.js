@@ -22,7 +22,6 @@ $(document).ready(function() {
                 x: -60 //center
             },
 
-          
             xAxis: {
                 categories: data[0]['date'],
                 min: 0
@@ -63,9 +62,6 @@ $(document).ready(function() {
    render_graph(data);
     })
   }
-
-
-
 
 var acc = document.getElementsByClassName("accordion");
 var i;

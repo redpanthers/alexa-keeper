@@ -11,8 +11,8 @@ class CollectionsController < ApplicationController
     redirect_to root_url
   end
     
-    private
-    def collection_params
-      params.require(:collection).permit(:name, :user_id)
-    end
+  private
+  def collection_params
+    params.require(:collection).permit(:name, :user_id)
   end
+end

@@ -35,7 +35,6 @@
       top: -7%;
       width: 100%; /* Full width */
       height: 100%; /* Full height */
-      
       background-color: rgb(0,0,0); /* Fallback color */
       background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
@@ -79,7 +78,6 @@
 }
 
 .sidenav button {
-   // margin-top:15%;
     text-decoration: none;
     font-size: 25px;
     color: white;
@@ -91,7 +89,6 @@
 
 .sidenav .closebtn {
     position: absolute;
-
     right: 8%;
     font-size: 20px;
     margin-left: 50px;
@@ -758,15 +755,9 @@ margin-left:-14%;
 margin-right:14%
 }
 
-
-
 button.accordion.active:after {
     content: "\2212";
 }
-
-
-
-
 
 div.panel {
     padding: 0 18px;
@@ -778,7 +769,6 @@ div.panel {
     font-size:18px;
     }
 }
-
 
 /* home page navbar responsiveness*/
 
@@ -796,11 +786,11 @@ div.panel {
 .display{
    margin-top: 7px;
    a{
-         min-width: 180px;
+      min-width: 180px;
    }
     input{    
     min-width: 180px;
-}
+   }
 }
 .edit-form{
     margin: 10px;  
@@ -811,12 +801,12 @@ div.panel {
 @media only screen and (max-width: 500px) {
   .user-edit{
     margin-top: 150px;
-}  
+   }  
 }
 @media only screen and (max-width: 767px) {
     .user-edit{
     margin-top: 150px;
-}  
+   }  
 }
 .update-button{
     input{
@@ -824,7 +814,7 @@ div.panel {
 }
 a{
     min-width: 180px;
-}
+ }
 }
 .home-corner-image{
 .pic_betas{
@@ -852,41 +842,47 @@ display: inline-block;
     img{
         width:72px;
     }
-}
+  }
 }
 @media only screen and (max-width: 700px) {
 .side{
 margin-top: 120px !important;
-}
+  }
 }
 @media only screen and (max-width: 900px) {
 .side{
 margin-top: 150px !important;
-}
+  }
 }
 @media only screen and (max-width: 767px ) {
 .sidenav{
     margin-top: 75px ;
-}
+  }
 }
 @media only screen and (max-width: 700px ) {
 .sidenav{
     margin-top: 65px;
-}
+  }
 }
 @media only screen and (max-width: 650px ) {
 .sidenav{
     margin-top: 60px;
-}
+  }
 }
 @media only screen and (max-width: 500px) {
 
 .sidenav{
     margin-top: 55px;
-}
+  }
 }
 
 /* collections page */
+
+.url-flash-message{
+    margin-left:30%;
+    margin-top:4%;
+    font-style:italic;
+}
 .sidenav {
 	    height: 100%;
 	    width: 0;
@@ -897,9 +893,7 @@ margin-top: 150px !important;
 	    overflow-x: hidden;
 	    transition: 0.5s;
 	    padding-top: 60px;
-
-       
-	}
+  }
 	.sidenav a:hover, .offcanvas a:focus{
 	    color: #f1f1f1;
 	}
@@ -936,14 +930,11 @@ button.accordion {
             margin-left:5%;
             font-size:20px;
             padding-bottom: 100%;
-
-
-        }
+          }
     }
 }
 .sub-list{
-   
-    h4{
+   h4{
         color: #ffff99;
         padding-left:10%;
     }
@@ -952,11 +943,7 @@ button.accordion {
         padding-left:10%;
         font-style:italic;
     }
-   
-}
-.show-graph{
-    /*z-index: -1;*/
-}
+   }
 /* collections navbar */
 
 .dropdown-arrow{
@@ -973,7 +960,7 @@ background-color:black !important;
  .collections-navbar-icon{
      
      font-weight:800;font-size:35px;
-}
+  }
 }
 .collections-navbar-right{
 margin-top:4%;
@@ -987,15 +974,10 @@ margin-top:4%;
     a{
         font-size:22px; 
         font-family:  Palatino, serif;
+      }
     }
-
-
-
-
-
+  }
 }
-}
- }
 
 /* domain partial */
 .domain-display{
@@ -1026,7 +1008,7 @@ margin-top:4%;
 }
 .home_text{
     margin-top: 75px;
-}
+   }
   }
   @media only screen and (max-width: 767px) {
     .home-head{
@@ -1036,7 +1018,7 @@ margin-top:4%;
 }
 .home_text{
     margin-top: 75px;
-}
+    }
   }
 .home-head{
     padding-right:0;
@@ -1110,7 +1092,7 @@ margin-top:15px;
         font-weight:800;
         font-size:35px;
     }
-}
+  }
 }
 
 /*Feedback page */
@@ -1168,9 +1150,9 @@ margin-top:15px;
     li{
     a:hover{
          color: #fcbd20 !important;
-    }
-    }
-}
+           }
+       }
+   }
 /* Inner Footer */
 .innerFoot{
     background-color:#800000;

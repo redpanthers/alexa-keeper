@@ -2,14 +2,9 @@
 <div class="container">
 <div class="row" style="padding-top:130px;padding-left:30%">
  <%= devise_error_messages! %>
-
-
-    <div class="col-md-4 col-md-offset-2">
+ <div class="col-md-4 col-md-offset-2">
       <h1 style="padding-left:15%">Log In</h1>
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { method: :post }) do |f| %>
-        
-
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { method: :post }) do |f| %>
         <div class="field">
             <%= f.label :email %><br/>
             <%= f.email_field :email,class:'form-control', autofocus: true %>
@@ -39,8 +34,7 @@
         <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
       </div>
     </div>
-
-</div>
+ </div>
 </div>
  
  <script>

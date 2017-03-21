@@ -9,9 +9,9 @@ class UserMailer < ApplicationMailer
 
   def invite_email(invite,str,hash)
     @invite = invite
-    @str = str
-    @hash = hash
-    @url  = 'rankhub.co'+@hash
+    @str    = str
+    @hash   = hash
+    @url    = 'rankhub.co'+@hash
     mail(to: @invite.email, subject: 'Welcome to RankHub')
   end
   
@@ -21,14 +21,13 @@ class UserMailer < ApplicationMailer
   end
   
   def feedback_email(fb)
-    @feedback=fb
+    @feedback = fb
     mail(to: "rankhub@gmail.com", subject: 'RankHub')
   end
 
   def weekly_mail(user,data)
-     @user = user.email
-     @data = data
-     mail(to: @user, subject: "Weekly report")
- end
-
+    @user = user.email
+    @data = data
+    mail(to: @user, subject: "Weekly report")
+  end
 end

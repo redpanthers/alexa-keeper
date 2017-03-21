@@ -28,13 +28,9 @@
         <%= render partial: 'layouts/header' %>
          <%= yield %>
          <%= render partial: 'layouts/foot_in' %>
-         
-       
-       
-      
-      <% elsif current_page?('/') %>
+        <% elsif current_page?('/') %>
 
-      <%= yield %>
+       <%= yield %>
         <%= render partial: 'layouts/footer' %>
        
         <% elsif current_page?('/users/password/new') %> 

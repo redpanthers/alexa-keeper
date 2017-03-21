@@ -14,24 +14,24 @@ module Websites
     end
 
     def call
-      @descript = create_website
-      update_statistics
-      find_or_create_user
-      fetch_rank
-      @descript
+      if (params[:website][:url].to_s.include? ".") 
+        create_website
+        update_statistics
+        find_or_create_user
+        fetch_rank
+        @web
+      end
     end
 
-    
     private
 
     attr_reader :params, :user, :website
 
     def create_website
       @website = website.first_or_create
-       CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
-
-      @descript = Website.fetch_metadescription(domain: params[:website][:url],website: website)
-      @descript
+      @web = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
+      Website.fetch_metadescription(domain: params[:website][:url],website: website)
+      @web
     end
 
     def collection_id
