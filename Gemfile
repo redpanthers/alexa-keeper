@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 ruby "2.4.0"
+
+gem 'rails', '~> 5.0'
 gem 'devise'
 gem 'whenever'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -10,7 +12,6 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_bootstrap_skin'
 #gem 'active_admin_editor'
-gem 'rails',        '~> 5.0'
 gem 'puma',         '3.4.0'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.0.0'
@@ -19,7 +20,6 @@ gem 'jquery-rails', '4.1.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.4.1'
 gem 'figaro'
-
 
 group :development, :test do
   gem 'pg', '0.18.4'
