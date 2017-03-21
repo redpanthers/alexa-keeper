@@ -23,7 +23,7 @@ gem 'jbuilder',     '2.4.1'
 gem 'figaro'
 
 group :development, :test do
-  gem 'byebug',  '9.0.0', platform: :mri
+  gem 'byebug', '9.0.0', platform: :mri
   gem 'pronto'
   gem 'pronto-rubocop'
   gem 'pronto-flay'
