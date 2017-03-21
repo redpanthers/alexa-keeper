@@ -24,6 +24,9 @@ gem 'figaro'
 
 group :development, :test do
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'pronto'
+  gem 'pronto-rubocop'
+  gem 'pronto-flay'
 end
 
 group :development do
