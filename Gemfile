@@ -11,7 +11,6 @@ gem 'sucker_punch', '~> 2.0'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_bootstrap_skin'
-#gem 'active_admin_editor'
 gem 'pg', '0.18.4'
 gem 'puma',         '3.4.0'
 
