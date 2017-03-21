@@ -12,7 +12,9 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_bootstrap_skin'
 #gem 'active_admin_editor'
+gem 'pg', '0.18.4'
 gem 'puma',         '3.4.0'
+
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.0.0'
 gem 'coffee-rails', '4.2.1'
@@ -22,7 +24,6 @@ gem 'jbuilder',     '2.4.1'
 gem 'figaro'
 
 group :development, :test do
-  gem 'pg', '0.18.4'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 
@@ -34,7 +35,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.18.4'
   gem 'rails_12factor'
 end
 
