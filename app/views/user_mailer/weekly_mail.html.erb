@@ -1,25 +1,17 @@
 <h3>
   Hello <%= @user %>
  </h3>
-
- <h4>
+<h4>
  Here is your weekly update from RankHub. You would find how your competitors website has fluctuated during the last week.
 </h4>
-
 <% @data.each do |data| %>
-
- <hr>
-
- <b><%= data[:list].upcase %></b>
-
- <hr>
-
- 
-
-<h3>
+    <hr>
+    <b><%= data[:list].upcase %></b>
+    <hr>
+    <h3>
   <%= data[:url] %>
 </h3>
-  <h4>
+    <h4>
   Week Start Rank:
   <%= data[:rank1] %>
   <br>Week End Rank:
@@ -44,22 +36,12 @@
     <%end%>
   <%end%>
 </h4>
-  
-  <br>
-
-
-
-<%end%>
-
-Follow us on Medium and stay updated with the latest feature releases of RankHub.
-<br>
-<br>
-
-Feed us back with your valuable suggestions to make Rank Hub more effective for you.
-<br>
-<br>
-
-Thank You
-<br>
-Team RankHub
-<br>
+    <br>
+    <%end%>
+        Follow us on Medium and stay updated with the latest feature releases of RankHub.
+        <br>
+        <br> Feed us back with your valuable suggestions to make Rank Hub more effective for you.
+        <br>
+        <br> Thank You
+        <br> Team RankHub
+        <br>

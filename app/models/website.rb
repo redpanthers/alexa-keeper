@@ -1,6 +1,6 @@
 class Website < ApplicationRecord
-  has_many :collection_websites
-  has_many :collections, through: :collection_websites
+  has_many  :collection_websites
+  has_many  :collections, through: :collection_websites
   has_many  :alexaranks, dependent: :destroy
   validates :url, presence: true
   validates_uniqueness_of :url
