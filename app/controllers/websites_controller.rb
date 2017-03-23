@@ -4,7 +4,7 @@ class WebsitesController < ApplicationController
       redirect_to root_url
     else
       redirect_to root_url
-      flash[:not] = "The url added seems invalid. Please check again"
+      flash[:not] = 'The url added seems invalid. Please check again'
     end
   end
 

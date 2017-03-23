@@ -3,7 +3,7 @@ require 'test_helper'
 class Websites::CreateTest < ActiveSupport::TestCase
   test 'adding a new website' do
     user = users(:hari)
-    collection = user.collections.create!(name: 'My Collection') 
+    collection = user.collections.create!(name: 'My Collection')
 
     params = { website: { url: 'twitter.com', collection_id: collection.id } }
 

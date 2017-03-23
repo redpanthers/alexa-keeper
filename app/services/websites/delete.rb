@@ -20,7 +20,7 @@ module Websites
     attr_reader :params, :user, :website
 
     def delete_website
-     CollectionWebsite.where(collection_id: collection_id, website_id: params[:id]).destroy_all
+      CollectionWebsite.where(collection_id: collection_id, website_id: params[:id]).destroy_all
     end
 
     def collection_id
@@ -36,6 +36,5 @@ module Websites
       websites_count = user.websites.count
       user.update(sites: site_urls, site_number: websites_count)
     end
-
   end
 end

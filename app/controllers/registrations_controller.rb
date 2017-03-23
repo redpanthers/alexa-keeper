@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
     @users_count = User.count('id')
     Statistic.update_statistics(registered_users: @users_count)
     @user = current_user.email
-    UserMailer.welcome_email(@user).deliver_now
+    UserMailer.welcome_email(@user).deliver_later
     after_sign_in_path_for(resource)
   end
 end

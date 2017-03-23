@@ -14,7 +14,7 @@ module Websites
     end
 
     def call
-      if (params[:website][:url].to_s.include? ".") 
+      if params[:website][:url].to_s.include? '.'
         create_website
         update_statistics
         find_or_create_user
@@ -30,7 +30,7 @@ module Websites
     def create_website
       @website = website.first_or_create
       @web = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
-      Website.fetch_metadescription(domain: params[:website][:url],website: website)
+      Website.fetch_metadescription(domain: params[:website][:url], website: website)
       @web
     end
 
