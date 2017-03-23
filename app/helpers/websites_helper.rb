@@ -2,8 +2,6 @@ require 'json'
 module WebsitesHelper
   def self.createJSON(website)
     alexaRank = website.fetch_last_10_days_rank
-    url = website.url
-    descript = website.description
     dates = []
     ranks = []
     alexaRank.each do |site|
@@ -14,12 +12,12 @@ module WebsitesHelper
       dates          << site.created_at.strftime('%Y-%m-%d')
     end
     series = []
-    series << { name: url, data: ranks }
+    series << { name: website.url, data: ranks }
 
     res               = {}
     res['title']      = { text: 'Alexa Rank' }
 
-    res['subtitle']   = { text: descript }
+    res['subtitle']   = { text: website.description }
 
     res['xAxis']      = { categories: dates.uniq,
                           title: { text: 'Date(YYYY-mm-dd)' },
