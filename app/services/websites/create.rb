@@ -16,7 +16,6 @@ module Websites
     def call
       if params[:website][:url].to_s.include? '.'
         create_website
-        update_statistics
         find_or_create_user
         fetch_rank
         @web
@@ -36,10 +35,6 @@ module Websites
 
     def collection_id
       params[:website][:collection_id]
-    end
-
-    def update_statistics
-      Statistic.update_statistics(sites: CollectionWebsite.count)
     end
 
     def find_or_create_user

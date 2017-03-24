@@ -79,9 +79,9 @@
     </div>
     <div class="col-md-5">
     <div class="row url-flash-message">
-    <% if flash[:not] %>
+    <% if flash[:err] %>
       <div class="alert alert-danger">
-        <%= flash[:not]%>
+        <%= flash[:err]%>
       </div>
       <% end %>
  </div>

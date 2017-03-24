@@ -9,6 +9,8 @@ gem 'active_bootstrap_skin'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
+gem 'pundit'
+
 gem 'figaro'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'pg', '0.18.4'
@@ -38,7 +40,6 @@ group :development do
 end
 
 group :production, :staging do
-  gem 'pg', '0.18.4'
   gem 'rails_12factor'
 end
 

@@ -11,7 +11,6 @@ module Collections
 
     def call
       delete_collection
-      update_statistics
       update_user_statistics
     end
 
@@ -22,11 +21,6 @@ module Collections
     def delete_collection
       CollectionWebsite.where('collection_id = ?', collection.id).destroy_all
       collection.destroy
-    end
-
-    def update_statistics
-      Statistic.update_statistics(sites: CollectionWebsite.count,
-                                  lists: Collection.count)
     end
 
     def update_user_statistics

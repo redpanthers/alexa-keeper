@@ -8,7 +8,6 @@ class StaticPagesController < ApplicationController
       @urls = current_user.websites
       @collection = Collection.new
       @collection_names = current_user.collections
-      @collect = Collection.new
     end
   end
 

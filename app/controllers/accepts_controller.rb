@@ -7,11 +7,8 @@ class AcceptsController < ApplicationController
     @str = (0...4).map { ('a'..'z').to_a[rand(26)] }.join
     if UserMailer.invite_email(@invite, @str, hash).deliver_now
       Invite.where(id: @ids).update_all(accept: 'false')
-      @accept = Statistic.pluck(:accepted_requests)
-      @accept = @accept.map! { |s| s.to_i + 1 }
-      Statistic.update_statistics(accepted_requests: @accept.last)
     end
-    redirect_to admin_statistics_path
+    redirect_to admin_analytics_path
   end
 
   private

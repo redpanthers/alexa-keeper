@@ -7,8 +7,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    Statistic.update_statistics(registered_users: User.count)
     UserMailer.welcome_email(current_user.email).deliver_later
     after_sign_in_path_for(resource)
   end
+
+
 end

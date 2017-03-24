@@ -11,7 +11,6 @@ module Websites
 
     def call
       delete_website
-      update_statistics
       find_or_create_user
     end
 
@@ -25,10 +24,6 @@ module Websites
 
     def collection_id
       params[:collection_id]
-    end
-
-    def update_statistics
-      Statistic.update_statistics(sites: CollectionWebsite.count)
     end
 
     def find_or_create_user

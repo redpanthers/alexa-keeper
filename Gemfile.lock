@@ -195,6 +195,8 @@ GEM
       rubocop (~> 0.38, >= 0.35.0)
     public_suffix (2.0.5)
     puma (3.4.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -319,6 +321,7 @@ DEPENDENCIES
   pronto-flay
   pronto-rubocop
   puma (= 3.4.0)
+  pundit
   rails (~> 5.0)
   rails_12factor
   sass-rails (= 5.0.6)

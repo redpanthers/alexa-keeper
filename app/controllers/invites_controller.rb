@@ -10,8 +10,6 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new(invite_params)
     if @invite.save
-      @invites_count = Invite.count
-      Statistic.update_statistics(recieved_requests: @invites_count)
       flash[:note] = 'Thank You for requesting an invitation to use RankHub. We would shortly send you an invitation code to register at RankHub'
       redirect_to static_invite_path
     end

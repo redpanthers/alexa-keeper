@@ -12,7 +12,7 @@ module Collections
 
     def call
       create_collection
-      update_statistics
+      update_each_user_analytics
     end
 
     private
@@ -23,8 +23,7 @@ module Collections
       user.collections.create(params) 
     end
 
-    def update_statistics
-      Statistic.update_statistics(lists: Collection.count)
+    def update_each_user_analytics
       user.update(list_number: user.collections.count)
     end
   end
