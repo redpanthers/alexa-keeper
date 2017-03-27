@@ -1,30 +1,11 @@
 class WebsitesController < ApplicationController
-
   def create
-    @website = current_user.websites.build(website_params)
-    if @website.save
-      @sites_count=Website.count('id')
-      @site_name=[]
-      current_user.websites.each do |website|
-          @site_name << website.url
-      end
-      
-      @each_user_sites=current_user.websites.count
-      if User.exists?
-        current_user.update(sites: @site_name)
-        current_user.update(sites_number: @each_user_sites)
-      else
-        current_user.create(sites: @site_name)
-        current_user.create(sites_number: @each_user_sites)
-      end
-      if Statistic.exists?
-        Statistic.update(sites: @sites_count) 
-      else
-        Statistic.create(sites: @sites_count)
-      end
+    if @web = Websites::Create.call(params, current_user)
+      redirect_to root_url
+    else
+      redirect_to root_url
+      flash[:err] = 'The url added seems invalid. Please check again'
     end
-    FetchRankJob.perform_later(@website) 
-    redirect_to root_url
   end
 
   def show
@@ -36,32 +17,13 @@ class WebsitesController < ApplicationController
   end
 
   def destroy
-    if Website.destroy(params[:id])
-      @sites_count=Website.count('id')
-      @site_name=[]
-      current_user.websites.each do |website|
-          @site_name << website.url
-        end
-      @each_user_sites=current_user.websites.count
-      if User.exists?
-        current_user.update(sites: @site_name)
-        current_user.update(sites_number: @each_user_sites)
-      else
-        current_user.create(sites: @site_name)
-        current_user.create(sites_number: @each_user_sites)
-      end
-      if Statistic.exists?
-        Statistic.update(sites: @sites_count) 
-      else
-        Statistic.create(sites: @sites_count)
-      end
-      redirect_to root_url
-    end
+    Websites::Delete.call(params, current_user)
+    redirect_to root_url
   end
 
   private
-    def website_params
-      params.require(:website).permit(:url, :user_id, :collection_id)
-    end
-  
+
+  def website_params
+    params.require(:website).permit(:url, :collection_id)
+  end
 end

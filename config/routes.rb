@@ -25,10 +25,6 @@ Rails.application.routes.draw do
   get '/token',to:'static_pages#token', :as => :static_token
   get '/feedback',to:'static_pages#feedback', :as => :static_feedback
   get 'device/registrations/accept'
-
-
-
-  
   get 'device/registrations/new'
   
 
