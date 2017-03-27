@@ -29,8 +29,7 @@ module Websites
     def create_website
       @website = website.first_or_create
       @web = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
-      Website.fetch_metadescription(domain: params[:website][:url], website: website)
-      @web
+      @website.fetch_meta_description
     end
 
     def collection_id
@@ -40,7 +39,7 @@ module Websites
     def find_or_create_user
       site_urls = user.websites.map(&:url)
       websites_count = user.websites.count
-      user.update(sites: site_urls, site_number: websites_count)
+      user.update!(sites: site_urls, site_number: websites_count)
     end
 
     def fetch_rank

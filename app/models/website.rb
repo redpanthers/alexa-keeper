@@ -20,14 +20,17 @@ class Website < ApplicationRecord
               .order('created_at ASC')
   end
 
-  def self.fetch_metadescription(domain:, website:)
-    url = if (domain.include? 'http://') || (domain.include? 'https://')
-            domain
+  def fetch_meta_description
+    # TODO: Mock this method in tests
+    return if Rails.env.test?
+
+    url = if (self.url.start_with? 'http://') || (self.url.start_with? 'https://')
+            self.url
           else
-            'http://' + domain
+            "http://#{self.url}"
           end
     descript = Nokogiri::HTML(open(url))
     meta = descript.search("meta[name='description']").map { |n| n['content'] }
-    website.update_attribute(:description, meta)
+    update_attribute(:description, meta)
   end
 end

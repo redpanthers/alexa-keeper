@@ -9,8 +9,10 @@ class Websites::CreateTest < ActiveSupport::TestCase
 
     Websites::Create.call(params, user)
 
+    # byebug
+
     user.reload
-    assert_equal 1, user.site_number
+    assert_equal 1, user.site_number, 'site number'
     assert_equal 1, Website.count
     assert_equal ['twitter.com'], user.websites.pluck(:url)
     assert_equal ['twitter.com'], collection.websites.pluck(:url)
