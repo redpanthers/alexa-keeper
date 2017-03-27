@@ -14,10 +14,12 @@ module Websites
     end
 
     def call
-      create_website
-      update_statistics
-      find_or_create_user
-      fetch_rank
+      if params[:website][:url].to_s.include? '.'
+        create_website
+        find_or_create_user
+        fetch_rank
+        @web
+      end
     end
 
     private
@@ -26,21 +28,18 @@ module Websites
 
     def create_website
       @website = website.first_or_create
-      CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
+      @web = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
+      @website.fetch_meta_description
     end
 
     def collection_id
       params[:website][:collection_id]
     end
 
-    def update_statistics
-      Statistic.update_statistics(sites: CollectionWebsite.count)
-    end
-
     def find_or_create_user
       site_urls = user.websites.map(&:url)
       websites_count = user.websites.count
-      user.update(sites: site_urls, site_number: websites_count)
+      user.update!(sites: site_urls, site_number: websites_count)
     end
 
     def fetch_rank

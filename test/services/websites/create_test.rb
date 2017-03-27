@@ -3,14 +3,25 @@ require 'test_helper'
 class Websites::CreateTest < ActiveSupport::TestCase
   test 'adding a new website' do
     user = users(:hari)
+<<<<<<< HEAD
     collection = user.collections.create!(name: 'My Collection') 
+=======
+    collection = user.collections.create!(name: 'My Collection')
+>>>>>>> master
 
     params = { website: { url: 'twitter.com', collection_id: collection.id } }
 
     Websites::Create.call(params, user)
 
+<<<<<<< HEAD
     user.reload
     assert_equal 1, user.site_number
+=======
+    # byebug
+
+    user.reload
+    assert_equal 1, user.site_number, 'site number'
+>>>>>>> master
     assert_equal 1, Website.count
     assert_equal ['twitter.com'], user.websites.pluck(:url)
     assert_equal ['twitter.com'], collection.websites.pluck(:url)
@@ -32,4 +43,8 @@ class Websites::CreateTest < ActiveSupport::TestCase
     assert_equal ['twitter.com'], user.websites.pluck(:url)
     assert_equal ['twitter.com'], collection.websites.pluck(:url)
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> master

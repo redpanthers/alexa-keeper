@@ -1,7 +1,11 @@
 class WebsitesController < ApplicationController
   def create
-    Websites::Create.call(params, current_user)
-    redirect_to root_url
+    if @web = Websites::Create.call(params, current_user)
+      redirect_to root_url
+    else
+      redirect_to root_url
+      flash[:err] = 'The url added seems invalid. Please check again'
+    end
   end
 
   def show
@@ -20,10 +24,6 @@ class WebsitesController < ApplicationController
   private
 
   def website_params
-    params.require(:website).permit(:url, :user_id, :collection_id)
-  end
-
-  def website_create_params
-    website_params.select{|x| Website.attribute_names.index(x)}
+    params.require(:website).permit(:url, :collection_id)
   end
 end
