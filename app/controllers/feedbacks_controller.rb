@@ -1,17 +1,13 @@
 class FeedbacksController < ApplicationController
-def create
+  def create
     @feedback = Feedback.new(feedback_params)
-    if @feedback.save
-        flash[:note]="Your message successfully saved"
-          redirect_to static_feedback_path
-      UserMailer.feedback_email(@feedback).deliver_now
-       
-    end
+    UserMailer.feedback_email(@feedback).deliver_later if @feedback.save
+    redirect_to root_path
   end
 
   private
 
-    def feedback_params
-      params.require(:feedback).permit(:name, :email, :message)
-    end
+  def feedback_params
+    params.require(:feedback).permit(:name, :email, :message)
+  end
 end

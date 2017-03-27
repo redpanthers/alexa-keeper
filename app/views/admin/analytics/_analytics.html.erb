@@ -1,0 +1,12 @@
+<div>
+  Request for invitation count : <%= Invite.count %>
+  <br>
+  Registered users : <%= User.count %>
+  <br>
+  Accepted users   : <%= Invite.where(:accept => false).count %>
+  <br>
+  Lists count      : <%= Collection.count %>
+  <br>
+  Sites count      : <%= CollectionWebsite.count %>
+  <br>
+</div>

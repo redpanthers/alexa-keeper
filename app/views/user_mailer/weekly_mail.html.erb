@@ -1,0 +1,47 @@
+<h3>
+  Hello <%= @user %>
+ </h3>
+<h4>
+ Here is your weekly update from RankHub. You would find how your competitors website has fluctuated during the last week.
+</h4>
+<% @data.each do |data| %>
+    <hr>
+    <b><%= data[:list].upcase %></b>
+    <hr>
+    <h3>
+  <%= data[:url] %>
+</h3>
+    <h4>
+  Week Start Rank:
+  <%= data[:rank1] %>
+  <br>Week End Rank:
+  <%= data[:rank2] %>
+  <br>
+  <% if data[:change] == 0 %> 
+  <br>
+  
+  No change  
+      <%= image_tag("http://www.iconsdb.com/icons/preview/orange/minus-4-xxl.png",
+      :height=>20, :width=>20, :alt => "image", :style => " padding-left: 10px; position: absolute !important;") %> 
+  <%end%>
+  <% if data[:change] %>
+    <% if data[:change] > 0 %>
+      <%= image_tag("http://www.iconsdb.com/icons/preview/green/up-circular-xxl.png",
+      :height=>20, :width=>20,  :alt => "image") %>
+      <%= data[:change] %>
+    <% elsif data[:change] < 0 %>
+      <%= image_tag("http://www.iconsdb.com/icons/preview/red/down-circular-xxl.png",
+      :height=>20, :width=>20,  :alt => "image") %>
+      <%= data[:change] %>
+    <%end%>
+  <%end%>
+</h4>
+    <br>
+    <%end%>
+        Follow us on Medium and stay updated with the latest feature releases of RankHub.
+        <br>
+        <br> Feed us back with your valuable suggestions to make Rank Hub more effective for you.
+        <br>
+        <br> Thank You
+        <br> Team RankHub
+        <br>

@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-    def index
+  def index
     if user_signed_in?
       if current_user.admin?
         @user = User.all
@@ -7,27 +7,18 @@ class StaticPagesController < ApplicationController
       @website = Website.new
       @urls = current_user.websites
       @collection = Collection.new
-
       @collection_names = current_user.collections
-      @collect = Collection.new
     end
   end
 
-
-  def contact
-  end
-
-  def terms
-  end
-
-  def privacy
-  end
-    
-  
-
   def show
-    web = Website.where(user_id: current_user.id)
-    @alexa_rank_json = StaticPagesHelper.createJSON(web)
+    website = current_user.websites
+    if params[:collection_id].present?
+      website = current_user.collections.find_by_id(params[:collection_id]).try(:websites)
+    else
+      website = current_user.websites
+    end
+    @alexa_rank_json = StaticPagesHelper.createJSON(website)
     respond_to do |format|
       format.html
       format.json { render json: @alexa_rank_json}

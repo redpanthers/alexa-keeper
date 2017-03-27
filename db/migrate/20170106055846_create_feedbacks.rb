@@ -4,7 +4,6 @@ class CreateFeedbacks < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :email
       t.text :message
-
       t.timestamps
     end
   end
