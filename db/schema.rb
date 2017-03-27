@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170324122455) do
+ActiveRecord::Schema.define(version: 20170216084616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,13 +55,6 @@ ActiveRecord::Schema.define(version: 20170324122455) do
     t.index ["website_id"], name: "index_alexaranks_on_website_id", using: :btree
   end
 
-  create_table "collection_websites", force: :cascade do |t|
-    t.integer  "collection_id"
-    t.integer  "website_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "collections", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -94,10 +86,26 @@ ActiveRecord::Schema.define(version: 20170324122455) do
     t.boolean  "accept"
   end
 
+  create_table "statistics", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "recieved_requests"
+    t.integer  "accepted_requests"
+    t.integer  "registered_users"
+    t.integer  "lists"
+    t.integer  "sites"
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password"
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -110,20 +118,22 @@ ActiveRecord::Schema.define(version: 20170324122455) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.string   "token"
-    t.integer  "list_number"
-    t.integer  "site_number"
+    t.integer  "lists_number"
+    t.integer  "sites_number"
     t.string   "sites",                  default: [],                 array: true
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
-   create_table "websites", force: :cascade do |t|
+  create_table "websites", force: :cascade do |t|
     t.string   "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "description"
-   end
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "collection_id"
+    t.index ["url", "user_id"], name: "index_websites_on_url_and_user_id", using: :btree
+    t.index ["user_id"], name: "index_websites_on_user_id", using: :btree
+  end
 
-  add_foreign_key "alexaranks", "websites"
 end

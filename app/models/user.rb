@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :validatable
-  has_many :collections, dependent: :destroy
-  has_many :websites, through: :collections
-  validates :token, :name, presence: true
-  validates_uniqueness_of :token
+  has_many :websites, dependent: :destroy
+  has_many :collections
+  validates_uniqueness_of :token, allow_nil: true
 end

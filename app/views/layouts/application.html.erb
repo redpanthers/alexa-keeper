@@ -3,8 +3,6 @@
     <head>
         <title>RankHub</title>
         <%= csrf_meta_tags %>
-        <meta name='description' content= 'Rankhub is a Redpanthers product on ruby on rails for checking website traffic and ranks ' />
-<meta name='keywords' content= 'rankhub, ranks,  ruby on rails, website traffic' />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Custom Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -24,18 +22,31 @@
     </head>
 
     <body>
-      <% if user_signed_in? %>
+       <% if user_signed_in? %>
         <%= render partial: 'layouts/header' %>
-        <%= yield %>
-        <%= render partial: 'layouts/foot_in' %>
+         <%= yield %>
+         <%= render partial: 'layouts/foot_in' %>
+         
+       
+       
+      
       <% elsif current_page?('/') %>
-        <%= yield %>
+
+      <%= yield %>
         <%= render partial: 'layouts/footer' %>
+       
+        <% elsif current_page?('/users/password/new') %> 
+        
+        <%= yield %> 
+     
       <% else %>
-        <%= render partial: 'layouts/header' %>
-        <%= yield %>
-        <%= render partial: 'layouts/foot_in' %>
+      <%= render partial: 'layouts/header' %>
+      <%= yield %>
+      <%= render partial: 'layouts/foot_in' %>
+
+     
       <% end %>
+       
     </body>
 </html>
 
