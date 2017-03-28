@@ -3,7 +3,7 @@
   <br>
   Registered users : <%= User.count %>
   <br>
-  Accepted users   : <%= Invite.where(:accept => false).count %>
+  Accepted requests   : <%= Invite.where(:accept => false).count %>
   <br>
   Lists count      : <%= Collection.count %>
   <br>
