@@ -2,9 +2,7 @@ class InvitesController < ApplicationController
   def index
     token = params[:token]
     session[:token] = token
-    hash = params[:hash]
-    session[:hash] = hash
-    redirect_to new_user_registration_path 
+    redirect_to new_user_registration_path
   end
 
   def create
@@ -14,6 +12,13 @@ class InvitesController < ApplicationController
       redirect_to static_invite_path
     end
   end
+
+  def approve
+    invite = Invite.find(params[:id])
+    invite.update(approved: true)
+    redirect_to admin_analytics_path
+  end
+
 
   private
 
