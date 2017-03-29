@@ -14,7 +14,8 @@
         <div class="field">
           <%= f.label :email ,"Email"%><br/>
             <%= f.email_field :email,  autofocus: true, class: 'form-control'%>
-              <%= f.hidden_field :accept, value: "true" %>
+              <%= f.hidden_field :approved, value: "true" %>
+
         </div>
         <div class="actions">
           <%= f.submit "Submit", class: "btn btn-success" %>
