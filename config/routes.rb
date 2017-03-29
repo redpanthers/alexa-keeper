@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations" }
   resources :websites
   resources :users
   resources :collections
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   root to: 'static_pages#index'
   post 'accepts/mail' => 'accepts#mail', :as => :mail_accepts
   delete 'static_pages/destroy'
-
   get 'static_pages/show'
   get '/invite',to:'static_pages#invite', :as => :static_invite
   get '/contact',to:'static_pages#contact', :as => :static_contact
@@ -24,8 +23,4 @@ Rails.application.routes.draw do
   get '/accept',to:'static_pages#accept', :as => :static_accept
   get '/token',to:'static_pages#token', :as => :static_token
   get '/feedback',to:'static_pages#feedback', :as => :static_feedback
-  get 'device/registrations/accept'
-  get 'device/registrations/new'
-  
-
 end
