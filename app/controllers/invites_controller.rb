@@ -4,7 +4,7 @@ class InvitesController < ApplicationController
     session[:token] = token
     hash = params[:hash]
     session[:hash] = hash
-    redirect_to new_user_registration_path
+    redirect_to new_user_registration_path 
   end
 
   def create
@@ -18,6 +18,6 @@ class InvitesController < ApplicationController
   private
 
   def invite_params
-    params.require(:invite).permit(:name, :email, :accept)
+    params.require(:invite).permit(:name, :email, :approved)
   end
 end
