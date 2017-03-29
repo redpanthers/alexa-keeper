@@ -9,13 +9,14 @@ class InvitesController < ApplicationController
     invite = Invite.new(invite_params)
     invite.save!
 
-    flash[:notice] = 'Thank You for requesting an invitation to use RankHub. We will shortly send you an invitation code to register at RankHub'
+    flash[:note] = 'Thank You for requesting an invitation to use RankHub. We will shortly send you an invitation code to register at RankHub'
     redirect_to static_invite_path
   end
 
   def approve
     invite = Invite.find(params[:id])
     invite.update(approved: true)
+    UserMailer.invite_email(invite).deliver_later
     redirect_to admin_analytics_path
   end
 
