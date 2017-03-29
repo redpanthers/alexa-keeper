@@ -1,3 +1,5 @@
 class Invite < ApplicationRecord
-  validates :name,:email, presence: true
+  has_secure_token
+
+  validates :name, :email, presence: true
 end
