@@ -6,11 +6,11 @@ class InvitesController < ApplicationController
   end
 
   def create
-    @invite = Invite.new(invite_params)
-    if @invite.save
-      flash[:note] = 'Thank You for requesting an invitation to use RankHub. We would shortly send you an invitation code to register at RankHub'
-      redirect_to static_invite_path
-    end
+    invite = Invite.new(invite_params)
+    invite.save!
+
+    flash[:notice] = 'Thank You for requesting an invitation to use RankHub. We will shortly send you an invitation code to register at RankHub'
+    redirect_to static_invite_path
   end
 
   def approve
@@ -18,7 +18,6 @@ class InvitesController < ApplicationController
     invite.update(approved: true)
     redirect_to admin_analytics_path
   end
-
 
   private
 
