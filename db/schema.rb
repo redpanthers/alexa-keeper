@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20170329064201) do
     t.string   "email"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.boolean  "approved"
+    t.boolean  "approved",   default: false
     t.string   "token"
     t.boolean  "accepted",   default: false
   end
