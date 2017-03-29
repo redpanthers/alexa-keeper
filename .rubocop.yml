@@ -17,3 +17,6 @@ AllCops:
   Exclude:
     - 'db/schema.rb'
     - 'bin/**/*'
+
+Rails:
+  Enabled: true
