@@ -1,4 +1,3 @@
-
   .tooltip {
       position: relative;
       display: inline-block;
@@ -883,30 +882,30 @@ margin-top: 150px !important;
     font-style:italic;
 }
 .sidenav {
-	    height: 100%;
-	    width: 0;
-	    position: fixed;
-	    top: 50px;
-	    left: 0;
-	    background-color: #111;
-	    overflow-x: hidden;
-	    transition: 0.5s;
-	    padding-top: 60px;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 50px;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
   }
-	.sidenav a:hover, .offcanvas a:focus{
-	    color: #f1f1f1;
-	}
-	.closebtn {
-	    position: absolute;
-	    top: 0;
-	    right: 25px;
-	    font-size: 26px !important;
-	    margin-left: 50px;
-	}
-	@media screen and (max-height: 450px) {
-	  .sidenav {padding-top: 15px;}
-	  .sidenav a {font-size: 18px;}
-	}
+  .sidenav a:hover, .offcanvas a:focus{
+      color: #f1f1f1;
+  }
+  .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 26px !important;
+      margin-left: 50px;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
   .side{
     margin-top: 100px;
   }
@@ -1159,5 +1158,3 @@ margin-top:15px;
     color:white;
     padding-bottom:10px;
 }
-
-

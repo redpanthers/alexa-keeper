@@ -1,3 +1,4 @@
+
 desc 'Send email to users' 
 task :email_sender => :environment do
   Rails.logger.info '[Email Sender] inside rake task'
