@@ -7,11 +7,8 @@ class UserMailer < ApplicationMailer
     mail(to: @user, subject: 'Welcome to RankHub')
   end
 
-  def invite_email(invite, str, hash)
+  def invite_email(invite)
     @invite = invite
-    @str    = str
-    @hash   = hash
-    @url    = 'rankhub.co' + @hash
     mail(to: @invite.email, subject: 'Welcome to RankHub')
   end
 

@@ -1,4 +1,3 @@
 class Feedback < ApplicationRecord
-    validates :name, :email, :message, presence: true
-
+  validates :name, :email, :message, presence: true
 end

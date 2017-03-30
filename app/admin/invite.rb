@@ -1,13 +1,14 @@
 ActiveAdmin.register Invite do
-
   index do
-        selectable_column
-        id_column
-        column :name
-        column :email
-        actions  do |invitation|
-        link_to 'Invite',  mail_accepts_path(:invite => { :name =>  invitation.name ,:email => invitation.email}),  method: :post if invitation.accept?
-        end
-  end
+    selectable_column
+    id_column
+    column :name
+    column :email
 
+    actions do |invitation|
+      unless invitation.approved?
+        link_to 'Approve', approve_invite_path(invitation), method: :put
+      end
+    end
+  end
 end
