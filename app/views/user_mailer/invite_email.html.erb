@@ -1,19 +1,14 @@
-<h1>
-       Thank You for Requesting an Invite to Use Rank Hub
-      <br>
-    </h1>
-<p>
-    We are priviledged to give you an Invite to Beta Test Rank Hub, just follow the link below:
-    <%= url_for :controller => 'invites', :action => 'index', :hash=> @invite.hash ,:token => @str, :only_path => false, :host => 'https://rankhub-staging.herokuapp.com' %>
-        <h3>
-    <%= @invite.name%>
-  </h3>
-        <h3>
-    <%= @invite.email%>
-  </h3>
-        <h3>Your Invite Code :</h3>
-        <h2>
-   <%= @str%>
-  </h2>
-        <h4>We are looking forward to have you onboard, Also your feedback is valuable. do share your thoughts in our feedback section</h4>
-        <br>Thanks for joining and have a great day!</h4>
+<h1>Thank you for requesting an invite to Use Rankhub<br></h1>
+
+<p>We are priviledged to give you an invite to Beta Test Rankhub.
+  Just follow the link below:</p>
+
+<p><%= invites_url(token: @invite.token) %></p>
+
+<p>We are looking forward to have you onboard.
+  Also your feedback is valuable.
+  Do share your thoughts in our feedback section</p>
+
+<br>
+
+Thanks for joining and have a great day!
