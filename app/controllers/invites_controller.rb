@@ -17,7 +17,7 @@ class InvitesController < ApplicationController
     invite = Invite.find(params[:id])
     invite.update(approved: true)
     UserMailer.invite_email(invite).deliver_later
-    redirect_to admin_analytics_path
+    redirect_to admin_invites_path
   end
 
   private
