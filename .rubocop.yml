@@ -15,8 +15,9 @@ Style/AndOr:
 
 AllCops:
   Exclude:
-    - 'db/schema.rb'
     - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'test/test_helper.rb'
 
 Rails:
   Enabled: true
