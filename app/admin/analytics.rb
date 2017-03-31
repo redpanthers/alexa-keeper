@@ -3,5 +3,3 @@ ActiveAdmin.register_page 'Analytics' do
     render partial: 'analytics'
   end
 end
-
-
