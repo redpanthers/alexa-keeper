@@ -4,17 +4,16 @@ ruby '2.4.0'
 
 gem 'rails', '~> 5.0'
 
-gem 'activeadmin', github: 'activeadmin'
 gem 'active_bootstrap_skin'
+gem 'activeadmin', github: 'activeadmin'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
-gem 'pundit'
-
 gem 'figaro'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'pg', '0.18.4'
 gem 'puma',         '3.4.0'
+gem 'pundit'
 gem 'sucker_punch', '~> 2.0'
 gem 'whenever'
 
