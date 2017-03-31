@@ -19,7 +19,7 @@ class Websites::CreateTest < ActiveSupport::TestCase
   test 'does not create duplicate website' do
     user = users(:hari)
     collection = user.collections.create!(name: 'My Collection')
-    website = Website.create!(url: 'twitter.com')
+    Website.create!(url: 'twitter.com')
 
     params = { website: { url: 'twitter.com', collection_id: collection.id } }
 
