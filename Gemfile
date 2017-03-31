@@ -12,17 +12,17 @@ gem 'devise'
 gem 'figaro'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'pg', '0.18.4'
-gem 'puma',         '3.4.0'
+gem 'puma', '3.4.0'
 gem 'pundit'
 gem 'sucker_punch', '~> 2.0'
 gem 'whenever'
 
 gem 'coffee-rails', '4.2.1'
-gem 'jbuilder',     '2.4.1'
+gem 'jbuilder', '2.4.1'
 gem 'jquery-rails', '4.1.1'
-gem 'sass-rails',   '5.0.6'
-gem 'turbolinks',   '5.0.1'
-gem 'uglifier',     '3.0.0'
+gem 'sass-rails', '5.0.6'
+gem 'turbolinks', '5.0.1'
+gem 'uglifier', '3.0.0'
 
 group :development, :test do
   gem 'byebug', '9.0.0', platform: :mri
@@ -32,10 +32,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console',           '3.1.1'
-  gem 'listen',                '3.0.8'
-  gem 'spring',                '1.7.2'
+  gem 'listen', '3.0.8'
+  gem 'spring', '1.7.2'
   gem 'spring-watcher-listen', '2.0.0'
+  gem 'web-console', '3.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
