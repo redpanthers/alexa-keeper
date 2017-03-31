@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  ActiveAdmin.routes(self)
 
   resources :collections
   resources :contacts
@@ -15,8 +16,6 @@ Rails.application.routes.draw do
   resources :users
   resources :websites
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'static_pages#index'
   delete 'static_pages/destroy'
   get 'static_pages/show'
   get '/invite', to: 'static_pages#invite', as: :static_invite
@@ -27,4 +26,6 @@ Rails.application.routes.draw do
   get '/accept', to: 'static_pages#accept', as: :static_accept
   get '/token', to: 'static_pages#token', as: :static_token
   get '/feedback', to: 'static_pages#feedback', as: :static_feedback
+
+  root to: 'static_pages#index'
 end
