@@ -14,23 +14,33 @@ module Websites
     end
 
     def call
-      if params[:website][:url].to_s.include? '.'
-        create_website
-        find_or_create_user
-        fetch_rank
-        @web
-      end
+      already_exist = Website.find_by(url: params[:website][:url])
+        if already_exist && params[:website][:collection_id]
+          website = CollectionWebsite.where("collection_id = ?", params[:website][:collection_id])
+                                 .where("website_id = ?", already_exist.id)
+                                 .first
+          if website.nil?
+            CollectionWebsite.create!(collection_id: params[:website][:collection_id], website_id: already_exist.id)
+          end
+        else
+          create_website
+          find_or_create_user
+          fetch_rank
+          @web
+        end
     end
+  
 
     private
 
     attr_reader :params, :user, :website
 
     def create_website
-      @website = website.first_or_create
-      @web = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
-      @website.fetch_meta_description
-    end
+        @website = website.first_or_create
+        @web     = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
+        @website.fetch_meta_description
+      end
+    
 
     def collection_id
       params[:website][:collection_id]
