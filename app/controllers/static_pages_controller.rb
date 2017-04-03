@@ -14,14 +14,16 @@ class StaticPagesController < ApplicationController
   def show
     website = current_user.websites
     if params[:collection_id].present?
-      website = current_user.collections.find_by_id(params[:collection_id]).try(:websites)
+      website = current_user.collections.find_by(id: params[:collection_id]).try(:websites)
     else
       website = current_user.websites
     end
+
     @alexa_rank_json = StaticPagesHelper.createJSON(website)
+
     respond_to do |format|
       format.html
-      format.json { render json: @alexa_rank_json}
+      format.json { render json: @alexa_rank_json }
     end
   end
 

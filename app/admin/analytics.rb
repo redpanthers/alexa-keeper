@@ -1,7 +1,5 @@
-ActiveAdmin.register_page "Analytics" do
+ActiveAdmin.register_page 'Analytics' do
   content do
-    render partial: "analytics"
+    render partial: 'analytics'
   end
 end
-
-

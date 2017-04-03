@@ -14,9 +14,10 @@ end
 
 Website.all.each do |site|
   20.times do |n|
-    rank = 1614533-n
-    date = Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f))
+    rank = 1_614_533 - n
+    date = Time.zone.at(0.0 + rand * (Time.now.to_f - 0.0.to_f))
     site.alexaranks.create!(rank: rank, created_at: date)
   end
 end
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

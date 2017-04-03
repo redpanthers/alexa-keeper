@@ -9,7 +9,7 @@ class WebsitesController < ApplicationController
   end
 
   def show
-    website          = Website.find(params[:id])
+    website = Website.find(params[:id])
     @alexa_rank_json = WebsitesHelper.createJSON(website)
     respond_to do |format|
       format.js

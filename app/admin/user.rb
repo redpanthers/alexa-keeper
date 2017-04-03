@@ -19,7 +19,9 @@ ActiveAdmin.register User do
     column :sign_in_count
     actions
   end
-  permit_params :name, :email, :list_number, :site_number, :sites, :password, :password_confirmation
+
+  permit_params :name, :email, :list_number, :site_number, :sites, :password,
+                :password_confirmation
 
   form do |f|
     f.inputs 'User' do
