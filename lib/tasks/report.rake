@@ -12,6 +12,6 @@ task :email_sender => :environment do
         data << { url: website.url, rank1: rank1, rank2: rank2, change: change, list: collect.name } 
       end
     end 
-    UserMailer.weekly_mail(user, data).deliver_now if Date.current.thursday? 
+    UserMailer.weekly_mail(user, data).deliver_now if Date.current.monday? 
   end 
 end
