@@ -1,10 +1,9 @@
 module Collections
   class Create
-    
     def self.call(params, user)
       new(params, user).call
     end
-    
+
     def initialize(params, user)
       @params = params
       @user = user
@@ -20,11 +19,11 @@ module Collections
     attr_reader :params, :user
 
     def create_collection
-      user.collections.create(params) 
+      user.collections.create(params)
     end
 
     def update_each_user_analytics
       user.update(list_number: user.collections.count)
     end
   end
-end 
+end
