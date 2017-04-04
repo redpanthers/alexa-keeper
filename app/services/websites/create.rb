@@ -21,7 +21,6 @@ module Websites
         create_website
         find_or_create_user
         fetch_rank
-        @collection_website
       end
     end
 
@@ -31,7 +30,7 @@ module Websites
 
     def create_website
       @website = website.first_or_create
-      @collection_website = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
+      CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
       @website.fetch_meta_description
     end
 

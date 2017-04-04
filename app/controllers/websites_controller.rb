@@ -1,11 +1,7 @@
 class WebsitesController < ApplicationController
   def create
-    if @collection_website = Websites::Create.call(params, current_user)
-      redirect_to root_url
-    else
-      redirect_to root_url
-      flash[:error] = 'Already added url'
-    end
+    Websites::Create.call(params, current_user)
+    redirect_to root_url
   end
 
   def show
