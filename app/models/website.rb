@@ -31,7 +31,7 @@ class Website < ApplicationRecord
           end
     page = Nokogiri::HTML(open(url))
     description = page.search("meta[name='description']").map { |n| n['content'] }
-    update_attribute(:description, description)
+    update(description: description)
   end
 end
 
