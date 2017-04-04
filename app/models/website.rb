@@ -3,8 +3,8 @@ class Website < ApplicationRecord
   has_many  :collections, through: :collection_websites
   has_many  :alexaranks, dependent: :destroy
   validates :url, presence: true
-  validates_uniqueness_of :url
-
+  validates :url, uniqueness: true
+  
   def fetch_alexa_rank_and_update!
     rank = Alexarank.fetch_rank(domain: url.to_s)
     alexaranks.create(rank: rank)
@@ -29,8 +29,10 @@ class Website < ApplicationRecord
           else
             "http://#{self.url}"
           end
-    descript = Nokogiri::HTML(open(url))
-    meta = descript.search("meta[name='description']").map { |n| n['content'] }
-    update_attribute(:description, meta)
+    page = Nokogiri::HTML(open(url))
+    description = page.search("meta[name='description']").map { |n| n['content'] }
+    update_attribute(:description, description)
   end
 end
+
+

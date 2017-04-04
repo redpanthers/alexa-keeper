@@ -14,19 +14,14 @@ module Websites
     end
 
     def call
-      already_exist = Website.find_by(url: params[:website][:url])
-      if already_exist && params[:website][:collection_id]
-        website = CollectionWebsite.where('collection_id = ?', params[:website][:collection_id])
-                                   .where('website_id = ?', already_exist.id)
-                                   .first
-        if website.nil?
-          CollectionWebsite.create!(collection_id: params[:website][:collection_id], website_id: already_exist.id)
-        end
+      url_exist = Website.find_by(url: params[:website][:url])
+      if url_exist && params[:website][:collection_id]
+        website = CollectionWebsite.where(collection: params[:website][:collection_id], website: url_exist).first_or_create  
       else
         create_website
         find_or_create_user
         fetch_rank
-        @web
+        @collection_website
       end
     end
 
@@ -36,7 +31,7 @@ module Websites
 
     def create_website
       @website = website.first_or_create
-      @web = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
+      @collection_website = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
       @website.fetch_meta_description
     end
 
