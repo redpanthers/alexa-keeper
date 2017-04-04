@@ -5,7 +5,7 @@ class Website < ApplicationRecord
   validates :url, presence: true
   validates :url, uniqueness: true
   
-  def fetch_alexa_rank_and_update!
+ def fetch_alexa_rank_and_update!
     rank = Alexarank.fetch_rank(domain: url.to_s)
     alexaranks.create(rank: rank)
 
@@ -34,5 +34,8 @@ class Website < ApplicationRecord
     update_attribute(:description, description)
   end
 end
+
+
+
 
 
