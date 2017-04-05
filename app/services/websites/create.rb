@@ -14,13 +14,14 @@ module Websites
     end
 
     def call
-      return unless params[:website][:url].to_s.include?('.')
-
-      create_website
-      find_or_create_user
-      fetch_rank
-
-      @collection_website
+      url_exist = Website.find_by(url: params[:website][:url])
+      if url_exist && params[:website][:collection_id]
+        CollectionWebsite.where(collection: params[:website][:collection_id], website: url_exist).first_or_create  
+      else
+        create_website
+        find_or_create_user
+        fetch_rank
+      end
     end
 
     private
@@ -29,8 +30,8 @@ module Websites
 
     def create_website
       @website = website.first_or_create
+      CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
       @website.fetch_meta_description
-      @collection_website = CollectionWebsite.create(collection_id: collection_id, website_id: website.id)
     end
 
     def collection_id
@@ -49,3 +50,4 @@ module Websites
     end
   end
 end
+

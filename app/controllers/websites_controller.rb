@@ -1,11 +1,7 @@
 class WebsitesController < ApplicationController
   def create
-    if @web = Websites::Create.call(params, current_user)
-      redirect_to root_url
-    else
-      redirect_to root_url
-      flash[:err] = 'The url added seems invalid. Please check again'
-    end
+    Websites::Create.call(params, current_user)
+    redirect_to root_url
   end
 
   def show
