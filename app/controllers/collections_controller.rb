@@ -8,7 +8,7 @@ class CollectionsController < ApplicationController
 
   def destroy
     collection = Collection.find(params[:id])
-    Pundit.authorize(current_user, collection, :destroy?)
+    authorize(collection, :destroy?)
     Collections::Delete.call(collection, current_user)
     redirect_to root_url
   end
