@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 class Website < ApplicationRecord
+  before_validation :add_protocol_to_website 
+  validates :url, url: true
   has_many  :collection_websites
   has_many  :collections, through: :collection_websites
   has_many  :alexaranks, dependent: :destroy
-  validates :url, presence: true
-  validates :url, uniqueness: true
   
   def fetch_alexa_rank_and_update!
     rank = Alexarank.fetch_rank(domain: url.to_s)
@@ -33,5 +34,10 @@ class Website < ApplicationRecord
     description = page.search("meta[name='description']").map { |n| n['content'] }
     update(description: description)
   end
-end
 
+  private
+
+  def add_protocol_to_website
+    self.url = (self.url[/^http:\/\//] || self.url[/^https:\/\//]) ? self.url : "http://#{self.url}"
+  end
+end
