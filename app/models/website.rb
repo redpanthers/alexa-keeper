@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class Website < ApplicationRecord
   before_validation :add_protocol_to_website
 
@@ -39,7 +38,13 @@ class Website < ApplicationRecord
 
   private
 
-  def add_protocol_to_website
-    self.url = url[/^http:\/\//] || url[/^https:\/\//] ? url : "http://#{url}"
+  def add_protocol_to_url
+    return if protocol_present?
+    self.url = "https://#{url}"
+  end
+
+  def protocol_present?
+    return false if url.blank?
+    url[/^http:\/\//] || url[/^https:\/\//]
   end
 end
