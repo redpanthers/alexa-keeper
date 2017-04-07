@@ -19,6 +19,7 @@ module Collections
     attr_reader :user, :collection
 
     def delete_collection
+      Pundit.authorize(user, collection, :destroy?)
       CollectionWebsite.where('collection_id = ?', collection.id).destroy_all
       collection.destroy
     end
