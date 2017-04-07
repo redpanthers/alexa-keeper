@@ -38,7 +38,7 @@ class Website < ApplicationRecord
 
   private
 
-  def add_protocol_to_url
+  def add_protocol_to_website
     return if protocol_present?
     self.url = "https://#{url}"
   end
