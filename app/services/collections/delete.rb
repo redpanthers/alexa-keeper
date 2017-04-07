@@ -1,11 +1,11 @@
 module Collections
   class Delete
-    def self.call(collection_id, user)
-      new(collection_id, user).call
+    def self.call(collection, user)
+      new(collection, user).call
     end
 
-    def initialize(collection_id, user)
-      @collection = Collection.find(collection_id)
+    def initialize(collection, user)
+      @collection = collection
       @user = user
     end
 
@@ -19,8 +19,7 @@ module Collections
     attr_reader :user, :collection
 
     def delete_collection
-      Pundit.authorize(user, collection, :destroy?)
-      CollectionWebsite.where('collection_id = ?', collection.id).destroy_all
+      CollectionWebsite.where(collection_id: collection.id).destroy_all
       collection.destroy
     end
 
