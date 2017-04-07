@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 module Websites
   class Create
     # From the controller, use it like this:

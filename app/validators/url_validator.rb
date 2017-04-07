@@ -1,3 +1,4 @@
+
 class UrlValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     uri = URI.parse(value)
@@ -12,13 +13,11 @@ class UrlValidator < ActiveModel::EachValidator
     false
   end
 
-  def valid_host? host
+  def valid_host?(host)
     host.present? && valid_characters?(host)
   end
 
-  def valid_characters? host
+  def valid_characters?(host)
     !host[/[\s\!\\"$%&'\(\)*+_,:;<=>?@\[\]^|£§°ç\/]/] && host.include?('.')
   end
-
 end
-
