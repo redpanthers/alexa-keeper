@@ -40,7 +40,7 @@ class Website < ApplicationRecord
 
   def add_protocol_to_website
     return if protocol_present?
-    self.url = "https://#{url}"
+    self.url = "http://#{url}"
   end
 
   def protocol_present?
