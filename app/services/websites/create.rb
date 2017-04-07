@@ -1,4 +1,3 @@
-
 module Websites
   class Create
     # From the controller, use it like this:
