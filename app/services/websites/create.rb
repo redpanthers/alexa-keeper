@@ -14,7 +14,13 @@ module Websites
     end
 
     def call
-      url_exist = Website.find_by(url: params[:website][:url])
+      url = params[:website][:url]
+      url = if (url.start_with? 'http://') || (url.start_with? 'https://')
+              url
+            else
+              "http://#{url}"
+            end
+      url_exist = Website.find_by(url: url)
       if url_exist && params[:website][:collection_id]
         CollectionWebsite.where(collection: params[:website][:collection_id], website: url_exist).first_or_create
       else
