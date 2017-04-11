@@ -5,11 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.first
-urls = ['csnipp.com', 'redpanthers.co', 'google.com']
 
-urls.each do |url|
-  user.websites.create!(url: url)
+user = User.first_or_create!(name: 'abc', email: 'abc@mail.com', password: '123456',                    password_confirmation: '123456')
+urls = ['abc.com']
+names = ['list']
+
+names.each do |name|
+  collection = user.collections.create!(name: name)
+  urls.each do |url|
+    collection.websites.create!(url: url)
+  end
 end
 
 Website.all.each do |site|
@@ -20,4 +25,4 @@ Website.all.each do |site|
   end
 end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.first_or_create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
