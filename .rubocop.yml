@@ -16,6 +16,9 @@ Style/AndOr:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/RegexpLiteral:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'bin/**/*'
