@@ -11,7 +11,7 @@ module Websites
       Websites::Create.call(params, user)
 
       user.reload
-      assert_equal 1, user.site_number, 'site number'
+      assert_equal 1, user.websites.count, 'websites_count'
       assert_equal 1, Website.count
       assert_equal ['http://twitter.com'], user.websites.pluck(:url)
       assert_equal ['http://twitter.com'], collection.websites.pluck(:url)
@@ -26,7 +26,7 @@ module Websites
       Websites::Create.call(params, user)
 
       user.reload
-      assert_equal 1, user.site_number, 'site number'
+      assert_equal 1, user.websites.count, 'websites_count'
       assert_equal 1, Website.count
       assert_equal ['http://twitter.com'], user.websites.pluck(:url)
       assert_equal ['http://twitter.com'], collection.websites.pluck(:url)
