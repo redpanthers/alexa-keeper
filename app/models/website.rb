@@ -2,6 +2,7 @@ class Website < ApplicationRecord
   before_validation :add_protocol_to_website
 
   validates :url, url: true
+  validates :url, uniqueness: true
 
   has_many  :collection_websites
   has_many  :collections, through: :collection_websites
