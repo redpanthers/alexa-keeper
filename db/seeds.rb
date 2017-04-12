@@ -6,16 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.first_or_create!(name: 'abc', email: 'abc@mail.com', password: '123456',                    password_confirmation: '123456')
-urls = ['abc.com']
-names = ['list']
-
-names.each do |name|
-  collection = user.collections.create!(name: name)
-  urls.each do |url|
-    collection.websites.create!(url: url)
-  end
-end
+user = User.create!(name: 'abc', email: 'abc@mail.com', password: '123456', password_confirmation: '123456')
+collection = user.collections.create!(name: 'First Collection')
+collection.websites.create!(url: 'https://www.owler.com')
 
 Website.all.each do |site|
   20.times do |n|
@@ -25,4 +18,4 @@ Website.all.each do |site|
   end
 end
 
-AdminUser.first_or_create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

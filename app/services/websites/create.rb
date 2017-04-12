@@ -15,11 +15,7 @@ module Websites
 
     def call
       url = params[:website][:url]
-      url = if (url.start_with? 'http://') || (url.start_with? 'https://')
-              url
-            else
-              "http://#{url}"
-            end
+      url = "http://#{url}" unless protocol_given?(url)
       url_exist = Website.find_by(url: url)
       if url_exist && params[:website][:collection_id]
         CollectionWebsite.where(collection: params[:website][:collection_id], website: url_exist).first_or_create
@@ -53,6 +49,10 @@ module Websites
     def fetch_rank
       return if website.alexaranks.any?
       FetchRankJob.perform_later(website)
+    end
+
+    def protocol_given?(url)
+      url if (url.start_with? 'http://') || (url.start_with? 'https://')
     end
   end
 end
