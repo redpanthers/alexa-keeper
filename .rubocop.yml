@@ -13,6 +13,12 @@ Style/AndOr:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-and-or-or'
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'bin/**/*'

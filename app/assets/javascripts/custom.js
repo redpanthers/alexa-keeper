@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function() { 
   var slider = ["ALERT","SMART","COMPETITIVE"];
   $("#animate").addClass('animated infinite fadeInDown');
   $("#animate").text(slider[0]);
@@ -117,6 +117,8 @@ function openNav() {
   function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
   }
+
+$('[data-toggle="tooltip"]').tooltip();  
 
   
 function showListWiseGraph(id, index){

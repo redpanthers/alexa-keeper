@@ -5,12 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.first
-urls = ['csnipp.com', 'redpanthers.co', 'google.com']
 
-urls.each do |url|
-  user.websites.create!(url: url)
-end
+user = User.create!(name: 'abc', email: 'abc@mail.com', password: '123456', password_confirmation: '123456')
+collection = user.collections.create!(name: 'First Collection')
+collection.websites.create!(url: 'https://www.owler.com')
 
 Website.all.each do |site|
   20.times do |n|

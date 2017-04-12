@@ -1,11 +1,11 @@
 module Collections
   class Delete
-    def self.call(collection_id, user)
-      new(collection_id, user).call
+    def self.call(collection, user)
+      new(collection, user).call
     end
 
-    def initialize(collection_id, user)
-      @collection = Collection.find(collection_id)
+    def initialize(collection, user)
+      @collection = collection
       @user = user
     end
 

@@ -1,7 +1,3 @@
-
-
-
-
 <div class="modal fade" id="demo1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -16,9 +12,9 @@
             </div>
             <div class="col-md-3">
               <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right'%>
+              <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right'%>
             </div>
-            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -29,71 +25,62 @@
   <div class="rows sidebar-section">
     <div id="mySidenav" class="sidenav sidebar-list">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <button class="accordion " data-toggle="collapse" data-toggle="collapse" data-target="#demo">Lists</button>
+      <button class="accordion " data-toggle="collapse" data-toggle="collapse" data-target="#demo" data-toggle="tooltip" data-placement="top" title="Add new list">Lists</button>
       <div id="demo" class="collapse sidebar-collapse">
         <% collection_nil = [] %>
           <% @urls.each do |url| %>
             <% if url.collection_ids.nil? %>
               <% collection_nil << url.id %>
-                <% end %>
-                  <% end %>
-                    <% if collection_nil.empty? %>
-                      <% @collection_names.any? %><br>
-                        <div class="panel-group sub-list" id="accordion">
-                          <% @collection_names.each_with_index do |collect, index| %>
-                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index+1 %>" onclick="showListWiseGraph(<%= collect.id %>, <%= index %>)" id="collection<%= index %>">
-                              <h4>
-                                <%= collect.name %>
-                              </h4>
-                            </a>
-                            <%= link_to "Delete", collection_path(collect.id),
-          data: { confirm: "Are you sure?" }, class: 'remove-list',method: :delete %>
-                              <div id="collapse<%= index+1 %>" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                  <div class="row">
-                                    <%= form_for (@website) do |f| %>
-                                      <div class="col-md-9">
-                                        
-                                           <%= f.text_field :url, id:'url_id', class:'form-control',placeholder:"Add Domain" %>
+            <% end %>
+          <% end %>
+          <% if collection_nil.empty? %>
+            <% @collection_names.any? %>
+            <br>
+            <div class="panel-group sub-list" id="accordion">
+              <% @collection_names.each_with_index do |collect, index| %>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index+1 %>" onclick="showListWiseGraph(<%= collect.id %>, <%= index %>)" id="collection<%= index %>" data-toggle="tooltip" data-placement="top" title="Click to add domain"><h4><%= collect.name %></h4></a>
+                <%= link_to "Delete", collection_path(collect.id), data: { confirm: "Are you sure?" }, 
+                class: 'remove-list',method: :delete %>
+                <div id="collapse<%= index+1 %>" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="row">
+                      <%= form_for (@website) do |f| %>
+                        <div class="col-md-9">
+                          <%= f.text_field :url, id:'url_id', class:'form-control',placeholder:"Add Domain" %>
                           <%= f.hidden_field :collection_id, value: collect.id%>
                           <%= f.hidden_field :current_user, value: current_user.id%>
-
-                                      </div>
-                                      <div class="col-md-3">
-                                        <%= f.submit "Add", class: ' btn btn-success btn-sm btn pull-right'%>
-                                      </div>
-                                      <% end %>
-                                        <%= render partial: "domain", locals: { collect: collect } %>
-                                  </div>
-                                </div>
-                              </div>
-                              <% end %>
                         </div>
-                        <a class="add-newlist" data-toggle="modal" data-target="#demo1">Add new list</a>
-      </div>
-    </div>
-
-    <div id="main">
-      <span onclick="openNav()">☰</span>
- 
-    </div>
+                        <div class="col-md-3">
+                          <%= f.submit "Add", class: ' btn btn-success btn-sm btn pull-right'%>
+                        </div>
+                      <% end %>
+                      <%= render partial: "domain", locals: { collect: collect } %>
+                     </div>
+                   </div>
+                 </div>
+               <% end %>
+             </div>
+             <a class="add-newlist" data-toggle="modal" data-target="#demo1" data-toggle="tooltip" data-placement="top" title="Click me">Add new list</a>
+           </div>
+         </div>
+         <div id="main">
+            <span onclick="openNav()" data-toggle="tooltip" data-placement="top" title="Open side bar">☰
+            </span>
+        </div>
     <div class="col-md-5">
-    <div class="row url-flash-message">
-    <% if flash[:error] %>
-      <div class="alert alert-danger">
-        <%= flash[:error]%>
+      <div class="row url-flash-message">
+        <% if flash[:error] %>
+          <div class="alert alert-danger">
+            <%= flash[:error]%>
+          </div>
+        <% end %>
       </div>
-      <% end %>
- </div>
-</div>  
-  
-    <div class="col-md-7 show-graph" id="graph"></div>
-
+    </div>  
+  <div class="col-md-7 show-graph" id="graph"></div>
   </div>
   <% else %>
     <%= render 'check' %>
-      <% end %>
-
+  <% end %>
 </div>
 
-        
+       
