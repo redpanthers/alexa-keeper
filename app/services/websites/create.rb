@@ -52,7 +52,7 @@ module Websites
     end
 
     def protocol_given?(url)
-      url if (url.start_with? 'http://') || (url.start_with? 'https://')
+      (url.start_with? 'http://') || (url.start_with? 'https://')
     end
   end
 end
